@@ -6,7 +6,7 @@ import { Children, type ReactNode } from "react";
 export type RevealDir = "up" | "left" | "right" | "alternate";
 
 // Smooth ease-out (expo-ish): slow start, gentle landing — jauh lebih lembut dari default
-const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+const EASE = [0.12, 1, 0.22, 1] as [number, number, number, number];
 
 /**
  * Single-element scroll reveal (slide in from side/bottom when scrolled into view).
@@ -30,15 +30,15 @@ export function Reveal({
   if (reduce) return <div className={className}>{children}</div>;
 
   const hidden =
-    dir === "left" ? { x: -56, y: 0 } : dir === "right" ? { x: 56, y: 0 } : { x: 0, y: 40 };
+    dir === "left" ? { x: -64, y: 0 } : dir === "right" ? { x: 64, y: 0 } : { x: 0, y: 48 };
 
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, ...hidden, filter: "blur(6px)" }}
+      initial={{ opacity: 0, ...hidden, filter: "blur(8px)" }}
       whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
-      viewport={{ once, margin: "-60px" }}
-      transition={{ duration: 0.95, delay, ease: EASE }}
+      viewport={{ once, margin: "-40px" }}
+      transition={{ duration: 1.6, delay, ease: EASE }}
     >
       {children}
     </motion.div>
@@ -53,7 +53,7 @@ export function RevealGrid({
   children,
   className,
   dir = "up",
-  stagger = 0.16,
+  stagger = 0.25,
 }: {
   children: ReactNode;
   className?: string;
@@ -64,11 +64,11 @@ export function RevealGrid({
   if (reduce) return <div className={className}>{children}</div>;
 
   const kids = Children.toArray(children).map((child, i) => {
-    const x = dir === "alternate" ? (i % 2 === 0 ? -52 : 52) : dir === "left" ? -52 : dir === "right" ? 52 : 0;
-    const y = dir === "up" ? 36 : 0;
+    const x = dir === "alternate" ? (i % 2 === 0 ? -64 : 64) : dir === "left" ? -64 : dir === "right" ? 64 : 0;
+    const y = dir === "up" ? 44 : 0;
     const v: Variants = {
-      hidden: { opacity: 0, x, y, filter: "blur(6px)" },
-      show: { opacity: 1, x: 0, y: 0, filter: "blur(0px)", transition: { duration: 0.85, ease: EASE } },
+      hidden: { opacity: 0, x, y, filter: "blur(8px)" },
+      show: { opacity: 1, x: 0, y: 0, filter: "blur(0px)", transition: { duration: 1.5, ease: EASE } },
     };
     return (
       <motion.div key={i} variants={v}>
@@ -82,7 +82,7 @@ export function RevealGrid({
       className={className}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, margin: "-40px" }}
       variants={{ show: { transition: { staggerChildren: stagger } } }}
     >
       {kids}
