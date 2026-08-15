@@ -2,6 +2,7 @@
 
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, CtaBand } from "./ui";
+import { Reveal, RevealGrid } from "./motion";
 
 function Avatar({ icon = "user" }: { icon?: "user" | "stack" }) {
   if (icon === "stack") {
@@ -46,20 +47,20 @@ export default function TeamClient() {
       <section className="section team-section">
         <div className="container">
           <SectionHead kicker={t("team.top.kicker", dict)} title={t("team.top.title", dict)} desc={t("team.top.desc", dict)} />
-          <div className="team-lead-grid">
-            <div className="team-card team-card-lead reveal">
+          <RevealGrid className="team-lead-grid" dir="alternate">
+            <div className="team-card team-card-lead">
               <div className="avatar-lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
               <span className="team-badge">{t("team.badge.kasppg", dict)}</span>
               <h3>{t("team.kasppg", dict)}</h3>
               <p className="team-name">{t("team.placeholder", dict)}</p>
             </div>
-            <div className="team-card team-card-lead reveal d1">
+            <div className="team-card team-card-lead">
               <div className="avatar-lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
               <span className="team-badge team-badge-alt">{t("team.badge.yayasan", dict)}</span>
               <h3>{t("team.yayasan", dict)}</h3>
               <p className="team-name">{t("team.placeholder", dict)}</p>
             </div>
-          </div>
+          </RevealGrid>
         </div>
       </section>
 
@@ -67,15 +68,15 @@ export default function TeamClient() {
       <section className="section team-section section-alt">
         <div className="container">
           <SectionHead kicker={t("team.staff.kicker", dict)} title={t("team.staff.title", dict)} />
-          <div className="team-grid">
+          <RevealGrid className="team-grid" dir="alternate">
             {staff.map((k, i) => (
-              <div className="team-card team-card-multi reveal d1" key={i}>
+              <div className="team-card team-card-multi" key={i}>
                 <Avatar />
                 <h3>{t(k, dict)}</h3>
                 <p className="team-name">{t("team.placeholder", dict)}</p>
               </div>
             ))}
-          </div>
+          </RevealGrid>
         </div>
       </section>
 
@@ -84,14 +85,14 @@ export default function TeamClient() {
         <div className="container">
           <SectionHead kicker={t("team.admin.kicker", dict)} title={t("team.admin.title", dict)} />
           <div className="team-admin-grid">
-            <div className="team-card team-card-admin reveal">
+            <Reveal className="team-card team-card-admin" dir="left">
               <Avatar />
               <div className="admin-body">
                 <h3>{t("team.adminRole", dict)}</h3>
                 <p className="team-name">{t("team.placeholder", dict)}</p>
               </div>
               <p className="admin-desc">{t("team.admin.desc", dict)}</p>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -100,9 +101,9 @@ export default function TeamClient() {
       <section className="section team-section section-alt">
         <div className="container">
           <SectionHead kicker={t("team.ops.kicker", dict)} title={t("team.ops.title", dict)} desc={t("team.ops.desc", dict)} />
-          <div className="team-grid">
+          <RevealGrid className="team-grid" dir="alternate">
             {ops.map((o, i) => (
-              <div className="team-card team-card-multi reveal d1" key={i}>
+              <div className="team-card team-card-multi" key={i}>
                 <Avatar icon={o.stack ? "stack" : "user"} />
                 <h3>{t(o.k, dict)}</h3>
                 <p className="team-name">
@@ -110,7 +111,7 @@ export default function TeamClient() {
                 </p>
               </div>
             ))}
-          </div>
+          </RevealGrid>
         </div>
       </section>
       <CtaBand />

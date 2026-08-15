@@ -2,6 +2,7 @@
 
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, CtaBand } from "./ui";
+import { Reveal, RevealGrid } from "./motion";
 
 export default function PortfolioClient() {
   const { dict } = useI18n();
@@ -29,28 +30,28 @@ export default function PortfolioClient() {
       </section>
       <section className="section section-tight">
         <div className="container">
-          <div className="grid-3">
+          <RevealGrid className="grid-3" dir="alternate">
             {cards.map((c, i) => (
-              <div className="card value-item reveal d1" key={i}>
+              <div className="card value-item" key={i}>
                 <div className="ic">{ICONS[c.icon]}</div>
                 <h3>{t(c.kt, dict)}</h3>
                 <p>{t(c.kd, dict)}</p>
               </div>
             ))}
-          </div>
+          </RevealGrid>
         </div>
       </section>
       <section className="section section-alt">
         <div className="container">
           <SectionHead kicker={t("pf.gal.kicker", dict)} title={t("pf.gal.title", dict)} />
-          <div className="gallery">
+          <RevealGrid className="gallery" dir="alternate">
             {gallery.map((g, i) => (
-              <div className="g-item reveal d1" key={i}>
+              <div className="g-item" key={i}>
                 <img src={g.src} alt={t(g.cap, dict)} width={480} height={360} loading="lazy" />
                 <span className="g-cap">{t(g.cap, dict)}</span>
               </div>
             ))}
-          </div>
+          </RevealGrid>
         </div>
       </section>
       <CtaBand />

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useI18n, t, type I18nCtx } from "./I18nProvider";
+import { useI18n, t } from "./I18nProvider";
+import { Reveal } from "./motion";
 
 export function SectionHead({ kicker, title, desc, center = true }: { kicker: string; title: string; desc?: string; center?: boolean }) {
   return (
@@ -76,7 +77,7 @@ export function FaqSection() {
         <SectionHead kicker={t("faq.kicker", dict)} title={t("faq.title", dict)} />
         <div style={{ maxWidth: 760, margin: "0 auto" }}>
           {items.map((item, i) => (
-            <div key={i} className={`faq-item reveal d${(i % 4) + 1} ${openIdx === i ? "open" : ""}`}>
+            <Reveal key={i} dir={i % 2 === 0 ? "left" : "right"} className={`faq-item ${openIdx === i ? "open" : ""}`}>
               <button className="faq-q" onClick={() => setOpenIdx(openIdx === i ? null : i)} aria-expanded={openIdx === i}>
                 {item.q}
                 <span className="chev">
@@ -86,7 +87,7 @@ export function FaqSection() {
               <div className="faq-a" style={{ maxHeight: openIdx === i ? 300 : 0 }}>
                 <p>{item.a}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -99,11 +100,11 @@ export function CtaBand() {
   return (
     <section className="section section-tight">
       <div className="container">
-        <div className="cta-band reveal">
+        <Reveal className="cta-band" dir="up">
           <h2>{t("cta.title", dict)}</h2>
           <p>{t("cta.desc", dict)}</p>
           <a href="#contact" className="btn btn-white">{t("cta.btn", dict)}</a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -121,7 +122,7 @@ export function ContactSection() {
       <div className="container">
         <SectionHead kicker={t("contact.kicker", dict)} title={t("contact.title", dict)} />
         <div className="contact-grid">
-          <div className="contact-info reveal">
+          <Reveal className="contact-info" dir="left">
             <div className="card">
               {rows.map((row, i) => (
                 <div className="info-row" key={i}>
@@ -137,15 +138,15 @@ export function ContactSection() {
                 </div>
               ))}
             </div>
-          </div>
-          <div className="map-wrap reveal d1">
+          </Reveal>
+          <Reveal className="map-wrap" dir="right">
             <iframe
               title="Lokasi SPPG Wonodri 3"
               src="https://www.google.com/maps?q=Jl.+Erlangga+Raya+No+38,+Pleburan,+Semarang+Selatan,+Semarang&output=embed"
               loading="eager"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

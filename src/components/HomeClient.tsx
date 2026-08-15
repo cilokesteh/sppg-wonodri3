@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, FaqSection, CtaBand, ContactSection } from "./ui";
+import { Reveal, RevealGrid } from "./motion";
 
 function Hero() {
   const { dict } = useI18n();
   return (
     <section className="hero">
       <div className="container hero-grid">
-        <div className="reveal">
+        <div>
           <span className="kicker">{t("hero.kicker", dict)}</span>
           <h1>
             {t("hero.h1a", dict)} <span className="grad">{t("hero.h1b", dict)}</span>
@@ -29,7 +30,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-visual reveal d1">
+        <div className="hero-visual">
           <div className="hero-card">
             <img src="/assets/hero-kitchen.jpg" alt="Dapur SPPG Wonodri 3" width={520} height={390} fetchPriority="high" />
             <div className="hero-float">
@@ -63,14 +64,14 @@ function Stats() {
   ];
   return (
     <div className="container stats-wrap">
-      <div className="stats-strip reveal">
+      <Reveal className="stats-strip" dir="up">
         {stats.map((s, i) => (
           <div className="st" key={i}>
             <b>{s.v}</b>
             <span>{t(s.l, dict)}</span>
           </div>
         ))}
-      </div>
+      </Reveal>
     </div>
   );
 }
@@ -106,15 +107,15 @@ function Services() {
     <section className="section">
       <div className="container">
         <SectionHead kicker={t("prog.kicker", dict)} title={t("prog.title", dict)} desc={t("prog.desc", dict)} />
-        <div className="grid-4">
+        <RevealGrid className="grid-4" dir="alternate">
           {items.map((item, i) => (
-            <div className="card reveal d1" key={i}>
+            <div className="card" key={i}>
               <div className="ic">{ICONS[item.icon]}</div>
               <h3>{t(item.kt, dict)}</h3>
               <p>{t(item.kd, dict)}</p>
             </div>
           ))}
-        </div>
+        </RevealGrid>
       </div>
     </section>
   );
@@ -132,9 +133,9 @@ function WhyUs() {
     <section className="section section-alt">
       <div className="container">
         <SectionHead kicker={t("why.kicker", dict)} title={t("why.title", dict)} desc={t("why.desc", dict)} />
-        <div className="why-grid">
+        <RevealGrid className="why-grid" dir="alternate">
           {items.map((item, i) => (
-            <div className="why-item reveal d1" key={i}>
+            <div className="why-item" key={i}>
               <span className="num">{String(i + 1).padStart(2, "0")}</span>
               <div>
                 <h3>{t(item.kt, dict)}</h3>
@@ -143,7 +144,7 @@ function WhyUs() {
               <span className="ic">{ICONS[item.icon]}</span>
             </div>
           ))}
-        </div>
+        </RevealGrid>
       </div>
     </section>
   );
@@ -159,14 +160,14 @@ function HomeGallery() {
   return (
     <section className="section">
       <div className="container">
-        <div className="home-gallery">
+        <RevealGrid className="home-gallery" dir="alternate">
           {items.map((item, i) => (
-            <div className="g-item reveal d1" key={i}>
+            <div className="g-item" key={i}>
               <img src={item.src} alt={t(item.cap, dict)} width={480} height={360} loading="lazy" />
               <span className="g-cap">{t(item.cap, dict)}</span>
             </div>
           ))}
-        </div>
+        </RevealGrid>
       </div>
     </section>
   );

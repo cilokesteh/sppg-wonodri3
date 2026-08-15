@@ -2,6 +2,7 @@
 
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, CtaBand } from "./ui";
+import { Reveal, RevealGrid } from "./motion";
 
 export default function ServiceClient() {
   const { dict } = useI18n();
@@ -28,29 +29,29 @@ export default function ServiceClient() {
       </section>
       <section className="section section-tight">
         <div className="container">
-          <div className="steps">
+          <RevealGrid className="steps" dir="up">
             {steps.map((s, i) => (
-              <div className="step reveal d1" key={i}>
+              <div className="step" key={i}>
                 <span className="ic">{ICONS[s.icon]}</span>
                 <h3>{t(s.kt, dict)}</h3>
                 <p>{t(s.kd, dict)}</p>
               </div>
             ))}
-          </div>
+          </RevealGrid>
         </div>
       </section>
       <section className="section section-alt">
         <div className="container">
           <SectionHead kicker={t("sv.extra.kicker", dict)} title={t("sv.extra.title", dict)} />
-          <div className="grid-4">
+          <RevealGrid className="grid-4" dir="alternate">
             {extras.map((v, i) => (
-              <div className="card value-item reveal d1" key={i}>
+              <div className="card value-item" key={i}>
                 <div className="ic">{ICONS.shield}</div>
                 <h3>{t(v.kt, dict)}</h3>
                 <p>{t(v.kd, dict)}</p>
               </div>
             ))}
-          </div>
+          </RevealGrid>
         </div>
       </section>
       <CtaBand />
