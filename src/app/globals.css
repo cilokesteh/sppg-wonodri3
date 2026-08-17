@@ -645,6 +645,7 @@ body { background: linear-gradient(180deg, #fff 0%, #f7fbff 45%, #fff 100%); }
 .hero h1 .grad {
   background: linear-gradient(120deg, var(--logo-navy) 0%, var(--gold) 40%, var(--logo-ring) 70%, var(--gold) 100%);
   background-size: 260% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: gradShift 7s linear infinite;
 }
 @keyframes gradShift { to { background-position: 260% 0; } }
@@ -1094,4 +1095,93 @@ html { color-scheme: light; }
 .checklist li::after {
   content: "✓"; position: absolute; left: 4.5px; top: 8px;
   font-size: .7rem; font-weight: 800; color: var(--sky-600);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PREMIUM POLISH v3 — append-only (Tuan: 2026-08-17)
+   Semua aturan BARU, tidak mengubah yang existing.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Scrollbar premium (WebKit) ── */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #eef4fb; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--sky-400), var(--sky-700));
+  border-radius: 99px; border: 2px solid #eef4fb;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--sky-500), var(--sky-800)); }
+.dark ::-webkit-scrollbar-track { background: #0a1424; }
+.dark ::-webkit-scrollbar-thumb { border-color: #0a1424; }
+
+/* ── Focus ring premium (a11y) ── */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid rgba(47, 134, 230, .45); outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* ── Selection premium ── */
+::selection { background: rgba(47, 134, 230, .22); color: var(--navy); }
+
+/* ── Transition tema halus ── */
+html.theme-transition, html.theme-transition * {
+  transition: background-color .45s ease, color .45s ease, border-color .45s ease !important;
+}
+
+/* ── Kicker hover micro-interaction ── */
+.kicker { transition: transform .3s ease; }
+.kicker:hover { transform: translateX(4px); }
+
+/* ── Gradient border button glow (CTA utama tambahan) ── */
+.btn-primary { position: relative; }
+.btn-primary::after {
+  content: ""; position: absolute; inset: -2px; border-radius: inherit; z-index: -1;
+  background: linear-gradient(135deg, rgba(47,134,230,.6), rgba(201,162,39,.4));
+  filter: blur(12px); opacity: 0; transition: opacity .4s ease;
+}
+.btn-primary:hover::after { opacity: .8; }
+
+/* ── Link nav underline animasi ── */
+.nav-links a {
+  position: relative;
+}
+.nav-links a::after {
+  content: ""; position: absolute; left: 50%; bottom: -2px;
+  width: 0; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, var(--sky-400), var(--gold));
+  transform: translateX(-50%); transition: width .3s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 60%; }
+
+/* ── Card icon micro-lift ── */
+.card .ic { transition: transform .35s cubic-bezier(.2,.7,.3,1.4); }
+.card:hover .ic { transform: translateY(-4px) scale(1.08); }
+
+/* ── Footer top border glow ── */
+.footer { position: relative; }
+.footer::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky-400), var(--gold), transparent);
+  opacity: .5;
+}
+
+/* ── CTA band gradient glow ── */
+.cta-band {
+  position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: ""; position: absolute; top: -60%; left: -20%; width: 140%; height: 220%;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,.18), transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Smooth anchor scroll offset (fixed nav) ── */
+section[id] { scroll-margin-top: 96px; }
+
+/* ── Desktop hover lift untuk grid cards (non-tilt) ── */
+.grid-3 > .card, .grid-4 > .card { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
+.grid-3 > .card:hover, .grid-4 > .card:hover { transform: translateY(-6px); }
+
+/* ── Reduced motion: semua animasi dimatikan (a11y) ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
