@@ -23,7 +23,7 @@ function Hero() {
           <div className="hero-trust">
             {["trust.1", "trust.2", "trust.3"].map((k) => (
               <div className="trust-item" key={k}>
-                <b>{k === "trust.1" ? "100+" : k === "trust.2" ? "50+" : "100%"}</b>
+                <b>{k === "trust.1" ? "1.577" : k === "trust.2" ? "12+1" : "100%"}</b>
                 <span>{t(k, dict)}</span>
               </div>
             ))}
@@ -58,7 +58,7 @@ function Stats() {
   const { dict } = useI18n();
   const stats = [
     { v: "1", l: "stat.1" },
-    { v: "1.200+", l: "stat.2" },
+    { v: "1.577", l: "stat.2" },
     { v: "BGN", l: "stat.3" },
     { v: "100%", l: "stat.4" },
   ];
