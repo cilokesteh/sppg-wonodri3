@@ -1438,3 +1438,62 @@ section[id] { scroll-margin-top: 96px; }
    putih bawah foto; foto stretch isi kartu, object-fit cover) ── */
 .team-photo-card { display: flex; flex-direction: column; }
 .team-photo-media { flex: 1; aspect-ratio: auto; min-height: 0; }
+
+/* ── Team photo card — FIX crop (rev 9): 5 orang harus utuh!
+   - object-fit: contain → foto utuh (tidak crop), letterbox
+   - aspect-ratio 4/3 → proporsional
+   - JANGAN stretch flex:1 (itu yang bikin crop) — pakai aspect tetap,
+     body nama di bawah biar kartu penuh & tinggi konsisten */
+.team-photo-card { padding: 0 !important; overflow: hidden !important; display: flex; flex-direction: column; }
+.team-photo-media {
+  position: relative; width: 100%; aspect-ratio: 4/3 !important; flex: none !important;
+  overflow: hidden; background: #0f1a2c;
+}
+.team-photo-media picture, .team-photo-media img {
+  display: block; width: 100%; height: 100% !important;
+  object-fit: contain !important; object-position: center;
+}
+.team-photo-media::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(11,20,36,0) 30%, rgba(11,20,36,.5) 68%, rgba(11,20,36,.88) 100%);
+}
+.team-photo-cap {
+  position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 2;
+  display: flex; flex-direction: column; gap: 5px; text-align: left;
+}
+.team-photo-cap b {
+  color: #fff; font-size: .95rem; font-weight: 800; letter-spacing: .01em;
+  text-shadow: 0 1px 8px rgba(0,0,0,.45);
+}
+.team-photo-names {
+  display: flex; flex-wrap: wrap; gap: 3px 10px; align-items: baseline;
+}
+.team-photo-names i {
+  font-style: normal; color: rgba(255,255,255,.94); font-size: .74rem;
+  font-weight: 600; letter-spacing: .02em;
+  text-shadow: 0 1px 6px rgba(0,0,0,.55);
+}
+.team-photo-names i + i::before { content: "·"; margin-right: 10px; color: rgba(255,255,255,.55); }
+.team-photo-footer {
+  padding: 12px 16px 16px; background: #fff; flex: 1;
+  display: flex; flex-direction: column; justify-content: center; gap: 6px;
+}
+.dark .team-photo-footer { background: #0f1a2c; }
+@media (max-width: 600px) {
+  .team-photo-media { aspect-ratio: 4/3 !important; }
+  .team-photo-cap { left: 10px; right: 10px; bottom: 9px; gap: 3px; }
+  .team-photo-cap b { font-size: .82rem; }
+  .team-photo-names i { font-size: .66rem; }
+  .team-photo-names { gap: 2px 7px; }
+  .team-photo-names i + i::before { margin-right: 7px; }
+}
+
+/* ── Team photo footer (rev 9b): isi ruang bawah, pin bottom, konsisten ── */
+.team-photo-footer {
+  padding: 10px 16px 14px; background: #fff; flex: 1;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.dark .team-photo-footer { background: #0f1a2c; }
+.team-photo-footer-lbl { font-size: .72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.team-photo-footer-count { font-size: 1.1rem; font-weight: 900; color: var(--sky-700); }
+.dark .team-photo-footer-count { color: #8abcf5; }

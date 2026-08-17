@@ -111,22 +111,28 @@ export default function TeamClient() {
             {ops.map((o, i) => (
               <TiltCard className={`team-card team-card-multi ${o.photo ? "team-photo-card" : ""}`} key={i}>
                 {o.photo ? (
-                  <div className="team-photo-media">
-                    <picture>
-                      <source srcSet={o.photoWebp} type="image/webp" />
-                      <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
-                    </picture>
-                    <div className="team-photo-cap">
-                      <b>{t(o.k, dict)}</b>
-                      {o.photoNames && (
-                        <span className="team-photo-names">
-                          {o.photoNames.map((n, ni) => (
-                            <i key={ni}>{n}</i>
-                          ))}
-                        </span>
-                      )}
+                  <>
+                    <div className="team-photo-media">
+                      <picture>
+                        <source srcSet={o.photoWebp} type="image/webp" />
+                        <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
+                      </picture>
+                      <div className="team-photo-cap">
+                        <b>{t(o.k, dict)}</b>
+                        {o.photoNames && (
+                          <span className="team-photo-names">
+                            {o.photoNames.map((n, ni) => (
+                              <i key={ni}>{n}</i>
+                            ))}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                    <div className="team-photo-footer">
+                      <span className="team-photo-footer-lbl">{t("team.ops.members", dict)}</span>
+                      <b className="team-photo-footer-count">{Math.max(o.members.length, 1)}</b>
+                    </div>
+                  </>
                 ) : (
                   <Avatar icon={o.stack ? "stack" : "user"} />
                 )}
