@@ -115,7 +115,7 @@ export function ContactSection() {
   const { dict } = useI18n();
   const rows = [
     { icon: "pin", label: t("contact.addr", dict), value: t("contact.addrV", dict) },
-    { icon: "mail", label: t("contact.email", dict), value: t("contact.emailV", dict), href: `mailto:${t("contact.emailV", dict)}` },
+    ...(t("contact.emailV", dict) ? [{ icon: "mail", label: t("contact.email", dict), value: t("contact.emailV", dict), href: `mailto:${t("contact.emailV", dict)}` }] : []),
     { icon: "clock2", label: t("contact.hours", dict), value: t("contact.hoursV", dict) },
   ];
   return (
@@ -157,10 +157,13 @@ export function ContactSection() {
 export function WaFloat() {
   const { dict } = useI18n();
   const msg = encodeURIComponent(t("wa.msg", dict));
+  // Nomor WA belum tersedia — tombol disembunyikan sampai client kasih nomor
+  const WA_NUMBER = "";
+  if (!WA_NUMBER) return null;
   return (
     <a
       className="wa-float"
-      href={`https://wa.me/6280000000000?text=${msg}`}
+      href={`https://wa.me/${WA_NUMBER}?text=${msg}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp"
