@@ -33,7 +33,7 @@ export default function TeamClient() {
     { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp", photoNames: ["Feni", "Ika", "Rina", "Dewi", "Almira"] },
     { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"], photo: "/assets/team-pengolahan.jpg", photoWebp: "/assets/team-pengolahan.webp", photoNames: ["Ira", "Rini", "Ari", "Ayu", "Rasyid"] },
     { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"], photo: "/assets/team-pemorsian.jpg", photoWebp: "/assets/team-pemorsian.webp", photoNames: ["Robi", "Agfanti", "Erna", "Marina", "Alis", "Dessy", "Ratna", "Herna"], portrait: true },
-    { k: "team.packing", members: ["Muhlisin"] },
+    { k: "team.packing", members: ["Muhlisin"], photo: "/assets/staff-packing.jpg", photoWebp: "/assets/staff-packing.webp", photoNames: ["Muhlisin"], solo: true },
     { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"] },
     { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
     { k: "team.keamanan", members: ["Andrie", "Bambang"], stack: true },
@@ -119,8 +119,8 @@ export default function TeamClient() {
             return (
               <div className="ops-photo-stack">
                 {photoOps.map((o, i) => (
-                  <Reveal className="ops-photo-wide" dir="up" key={i}>
-                    <TiltCard className={`team-card team-photo-wide-card${o.portrait ? " team-photo-portrait-card" : ""}`}>
+                  <Reveal className={`ops-photo-wide${o.solo ? " ops-photo-solo" : ""}`} dir="up" key={i}>
+                    <TiltCard className={`team-card team-photo-wide-card${o.portrait ? " team-photo-portrait-card" : ""}${o.solo ? " team-photo-solo-card" : ""}`}>
                       <div className="team-photo-media">
                         <picture>
                           <source srcSet={o.photoWebp} type="image/webp" />

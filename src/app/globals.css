@@ -1648,3 +1648,20 @@ section[id] { scroll-margin-top: 96px; }
   .team-photo-portrait-card { max-width: 100%; }
   .team-photo-portrait-card .team-photo-media { aspect-ratio: 3 / 4 !important; height: auto !important; }
 }
+
+/* ── Team photo SOLO card (rev: 1 orang, mis. Tim Packing Muhlisin) ──
+   Lebih sempit dari wide, vertikal biar proporsional dengan foto single-subject. */
+.ops-photo-solo { display: flex; justify-content: center; }
+.team-photo-solo-card { max-width: 320px; width: 100%; }
+.team-photo-solo-card .team-photo-media {
+  aspect-ratio: 3 / 4 !important; height: auto !important;
+}
+.team-photo-solo-card .team-photo-media img {
+  object-position: center 28% !important;
+}
+.team-photo-solo-card .team-photo-names {
+  flex-wrap: wrap !important; white-space: normal !important;
+}
+@media (max-width: 600px) {
+  .team-photo-solo-card { max-width: 280px; }
+}
