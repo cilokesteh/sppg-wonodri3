@@ -1326,3 +1326,10 @@ section[id] { scroll-margin-top: 96px; }
 }
 .team-card-photo > h3, .team-card-photo .team-members, .team-card-photo .team-count { padding: 0 !important; }
 .dark .team-card-photo-img { background: #0f1a2c !important; border-color: #1c2b42 !important; }
+
+/* ── Team photo card — borderless clean (rev 4: user 'border terlalu lebar') ── */
+.team-card-photo-img {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
