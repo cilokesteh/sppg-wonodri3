@@ -109,29 +109,42 @@ export default function TeamClient() {
           <SectionHead kicker={t("team.ops.kicker", dict)} title={t("team.ops.title", dict)} desc={t("team.ops.desc", dict)} />
           <RevealGrid className="team-grid" dir="alternate">
             {ops.map((o, i) => (
-              <TiltCard className={`team-card team-card-multi ${o.photo ? "efoot2-card" : ""}`} key={i}>
+              <TiltCard className={`team-card team-card-multi ${o.photo ? "team-photo-card" : ""}`} key={i}>
                 {o.photo ? (
-                  <div className="efoot2-photo">
-                    <picture>
-                      <source srcSet={o.photoWebp} type="image/webp" />
-                      <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
-                    </picture>
-                    {o.rating && <span className="efoot2-rating">{o.rating}</span>}
-                  </div>
+                  <>
+                    <div className="team-photo-media">
+                      <picture>
+                        <source srcSet={o.photoWebp} type="image/webp" />
+                        <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
+                      </picture>
+                      <div className="team-photo-cap">
+                        <b>{t(o.k, dict)}</b>
+                        <span>SPPG · WONODRI 3</span>
+                      </div>
+                    </div>
+                    <div className="team-photo-body">
+                      <ul className="team-members">
+                        {o.members.map((m) => (
+                          <li key={m}>{m}</li>
+                        ))}
+                      </ul>
+                      <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>
+                    </div>
+                  </>
                 ) : (
                   <Avatar icon={o.stack ? "stack" : "user"} />
                 )}
-                <h3>{t(o.k, dict)}</h3>
-                {o.members.length ? (
+                {!o.photo && <h3>{t(o.k, dict)}</h3>}
+                {!o.photo && o.members.length ? (
                   <ul className={`team-members ${o.members.length >= 6 ? "two-col" : ""} ${o.members.length === 1 ? "single" : ""}`}>
                     {o.members.map((m) => (
                       <li key={m}>{m}</li>
                     ))}
                   </ul>
                 ) : (
-                  <p className="team-name" style={{ margin: "6px 0" }}>{t("team.placeholder", dict)}</p>
+                  !o.photo && <p className="team-name" style={{ margin: "6px 0" }}>{t("team.placeholder", dict)}</p>
                 )}
-                <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>
+                {!o.photo && <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>}
               </TiltCard>
             ))}
           </RevealGrid>
