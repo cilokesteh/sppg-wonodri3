@@ -54,16 +54,18 @@ export default function TeamClient() {
         <div className="container">
           <SectionHead kicker={t("team.top.kicker", dict)} title={t("team.top.title", dict)} desc={t("team.top.desc", dict)} />
           <RevealGrid className="team-lead-grid" dir="alternate">
-            <TiltCard className="team-card team-card-lead team-card-photo" maxDeg={6}>
-              <div className="lead-photo">
+            <TiltCard className="team-card team-card-lead team-lead-photo-card" maxDeg={6}>
+              <div className="team-photo-media lead-media">
                 <picture>
                   <source srcSet="/assets/kasppg.webp" type="image/webp" />
                   <img src="/assets/kasppg.jpg" alt="Dicky Yusuf Mulyadi, S.M." width={700} height={1244} loading="lazy" />
                 </picture>
+                <div className="team-photo-cap lead-cap">
+                  <span className="team-badge lead-badge">{t("team.badge.kasppg", dict)}</span>
+                  <b>{t("team.kasppg", dict)}</b>
+                  <span className="lead-cap-name">Dicky Yusuf Mulyadi, S.M.</span>
+                </div>
               </div>
-              <span className="team-badge">{t("team.badge.kasppg", dict)}</span>
-              <h3>{t("team.kasppg", dict)}</h3>
-              <p className="team-name">Dicky Yusuf Mulyadi, S.M.</p>
             </TiltCard>
             <TiltCard className="team-card team-card-lead" maxDeg={6}>
               <div className="avatar-lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
