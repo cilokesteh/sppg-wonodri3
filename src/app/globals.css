@@ -1291,3 +1291,38 @@ section[id] { scroll-margin-top: 96px; }
 .team-card-photo .team-members { padding: 0 20px; }
 .team-card-photo .team-count { padding: 0 20px 18px; }
 .dark .team-card-photo-img { background: #0f1a2c; }
+
+/* ── Team photo card — framed, equal-padding (rev 2) ── */
+.team-card-photo { padding: 24px 18px; overflow: hidden; }
+.team-card-photo-img {
+  width: 100%; height: 132px; aspect-ratio: auto; overflow: hidden;
+  border-radius: 16px; border: 1px solid var(--line);
+  margin-bottom: 14px; background: #e8eef6;
+  box-shadow: 0 8px 20px rgba(13,40,80,.10);
+}
+.team-card-photo-img picture, .team-card-photo-img img {
+  display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 38%;
+}
+.team-card-photo > h3 { padding: 0; }
+.team-card-photo .team-members { padding: 0; }
+.team-card-photo .team-count { padding: 0; }
+.dark .team-card-photo-img { background: #0f1a2c; border-color: #1c2b42; }
+
+/* ── Equal-height team cards (RevealGrid wrapper stretch) ── */
+.team-grid > div { height: 100%; }
+.team-grid > div > .team-card { height: 100%; }
+
+/* ── Team photo card — framed, definitive override (rev 3) ── */
+.team-card-photo { padding: 24px 18px !important; overflow: hidden !important; }
+.team-card-photo-img {
+  width: 100% !important; height: 132px !important; aspect-ratio: auto !important;
+  border-radius: 16px !important; border: 1px solid var(--line) !important;
+  margin-bottom: 14px !important; background: #e8eef6 !important;
+  box-shadow: 0 8px 20px rgba(13,40,80,.10) !important; overflow: hidden !important;
+}
+.team-card-photo-img picture, .team-card-photo-img img {
+  display: block !important; width: 100% !important; height: 100% !important;
+  object-fit: cover !important; object-position: center 38% !important;
+}
+.team-card-photo > h3, .team-card-photo .team-members, .team-card-photo .team-count { padding: 0 !important; }
+.dark .team-card-photo-img { background: #0f1a2c !important; border-color: #1c2b42 !important; }
