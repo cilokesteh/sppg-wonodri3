@@ -6,6 +6,10 @@ import { I18nProvider } from "@/components/I18nProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WaFloat, BackTop } from "@/components/ui";
+import AnalyticsClient from "@/components/AnalyticsClient";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -129,6 +133,35 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             ]),
           }}
         />
+        {GA_ID && (
+          <>
+            <Script id="ga4" strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
+        {PIXEL_ID && (
+          <Script id="meta-pixel" strategy="afterInteractive">
+            {`
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${PIXEL_ID}');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
       </head>
       <body className={`${lexend.variable} ${sourceSans.variable}`}>
         <I18nProvider>
@@ -137,6 +170,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <WaFloat />
           <BackTop />
+          <AnalyticsClient />
         </I18nProvider>
       </body>
     </html>
