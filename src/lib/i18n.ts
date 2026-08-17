@@ -80,7 +80,7 @@ export const idDict = {
   "contact.email": "Email",
   "contact.emailV": "",
   "contact.hours": "Jam Operasional",
-  "contact.hoursV": "Senin – Sabtu, 06.00 – 16.00 WIB",
+  "contact.hoursV": "Senin – Jumat, 00.00 – 24.00 WIB",
 
   "footer.about": "SPPG Wonodri 3 — Satuan Pelayanan Pemenuhan Gizi yang mendukung program Makan Bergizi Gratis (MBG) untuk anak-anak Indonesia di Kota Semarang.",
   "footer.nav": "Navigasi",
@@ -280,7 +280,7 @@ export const enDict = {
   "contact.email": "Email",
   "contact.emailV": "",
   "contact.hours": "Operating Hours",
-  "contact.hoursV": "Monday – Saturday, 06.00 – 16.00 WIB",
+  "contact.hoursV": "Monday – Friday, 00.00 – 24.00 WIB",
 
   "footer.about": "SPPG Wonodri 3 — Nutrition Fulfillment Service Unit supporting the Free Nutritious Meals (MBG) program for Indonesian children in Semarang City.",
   "footer.nav": "Navigation",

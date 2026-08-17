@@ -95,7 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   addressCountry: "ID",
                 },
                 geo: { "@type": "GeoCoordinates", latitude: -6.993, longitude: 110.42 },
-                openingHours: "Mo-Sa 06:00-16:00",
+                openingHours: "Mo-Fr 00:00-24:00",
               },
               {
                 "@context": "https://schema.org",
