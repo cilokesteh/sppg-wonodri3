@@ -1,0 +1,26 @@
+{
+  "name": "SPPG Wonodri 3 — Dapur MBG Kota Semarang",
+  "short_name": "SPPG Wonodri 3",
+  "description": "Satuan Pelayanan Pemenuhan Gizi Wonodri 3 — Makan Bergizi Gratis untuk generasi sehat Indonesia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1759ab",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
