@@ -22,6 +22,23 @@ export default function PortfolioClient() {
     { icon: "user", cap: "pf.gal5" },
     { icon: "user", cap: "pf.gal6" },
   ];
+  // Data penerima manfaat per sekolah/posyandu (total 1.576)
+  const schools = [
+    { n: "SDN Pleburan 03", v: 346 },
+    { n: "SDN Wonodri", v: 91 },
+    { n: "SDN Pleburan", v: 120 },
+    { n: "Posyandu Erlangga", v: 74 },
+    { n: "TK Kuntum Mekar", v: 32 },
+    { n: "TK Nirwana Burhan", v: 61 },
+    { n: "TK Hapsari", v: 11 },
+    { n: "SDN Lamper Lor", v: 154 },
+    { n: "TK IT Sultan Agung", v: 116 },
+    { n: "TK Siwi Peni", v: 29 },
+    { n: "SDN Pleburan", v: 150 },
+    { n: "SD IT Al Firdaus", v: 349 },
+    { n: "TK Kartika III", v: 43 },
+  ];
+  const schoolTotal = schools.reduce((a, s) => a + s.v, 0);
   return (
     <>
       <section className="page-hero">
@@ -41,6 +58,23 @@ export default function PortfolioClient() {
                 <p>{t(c.kd, dict)}</p>
               </TiltCard>
             ))}
+          </RevealGrid>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <SectionHead kicker={t("sch.kicker", dict)} title={t("sch.title", dict)} desc={t("sch.desc", dict)} />
+          <RevealGrid className="school-grid" dir="up">
+            {schools.map((s, i) => (
+              <div className="school-item" key={i}>
+                <span className="school-name">{s.n}</span>
+                <span className="school-val">{s.v.toLocaleString("id-ID")}</span>
+              </div>
+            ))}
+            <div className="school-item school-total">
+              <span className="school-name">{t("sch.total", dict)}</span>
+              <span className="school-val">{schoolTotal.toLocaleString("id-ID")}</span>
+            </div>
           </RevealGrid>
         </div>
       </section>

@@ -1243,3 +1243,51 @@ section[id] { scroll-margin-top: 96px; }
 .fb-err { color: #9c2f2f; background: #fdeaea; border: 1px solid #f3c1c1; }
 .dark .fb-ok { color: #7ee2a5; background: #0f2a1c; border-color: #1c4a30; }
 .dark .fb-err { color: #ff9a9a; background: #2a1212; border-color: #4a1c1c; }
+
+/* ── School list (Penerima Manfaat per Sekolah — portfolio) ── */
+.school-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.school-item {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  padding: 14px 18px; transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.school-item:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(13,40,80,.08); border-color: var(--sky-300); }
+.school-name { font-weight: 600; color: var(--navy); font-size: .92rem; }
+.school-val { font-weight: 800; color: var(--sky-800); font-size: 1.1rem; letter-spacing: -0.02em; }
+.school-total { background: var(--grad); border: 0; }
+.school-total .school-name { color: #fff; font-weight: 700; }
+.school-total .school-val { color: #fff; }
+.dark .school-item { background: #0f1a2c; border-color: #1c2b42; }
+.dark .school-item:hover { border-color: #2e4a6e; box-shadow: 0 10px 24px rgba(0,0,0,.35); }
+.dark .school-name { color: #eaf1fb; }
+.dark .school-val { color: #8fc1f5; }
+@media (max-width: 600px) {
+  .school-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Team photo banner ── */
+.team-photo-wrap {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.team-photo-wrap picture, .team-photo-wrap img { display: block; width: 100%; height: auto; }
+.team-photo-cap {
+  position: absolute; left: 16px; bottom: 16px; right: auto; max-width: 560px;
+  background: rgba(10, 25, 47, .78); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.14); border-radius: 14px; padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.team-photo-cap b { color: #fff; font-size: 1.02rem; letter-spacing: -0.01em; }
+.team-photo-cap span { color: rgba(255,255,255,.82); font-size: .85rem; line-height: 1.45; }
+@media (max-width: 600px) {
+  .team-photo-cap { left: 10px; right: 10px; bottom: 10px; max-width: none; padding: 12px 14px; }
+}
+
+/* ── Team card with photo (ops grid) ── */
+.team-card-photo { padding: 0 !important; overflow: hidden; }
+.team-card-photo-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #e8eef6; }
+.team-card-photo-img picture, .team-card-photo-img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.team-card-photo > h3 { padding: 18px 20px 2px; }
+.team-card-photo .team-members { padding: 0 20px; }
+.team-card-photo .team-count { padding: 0 20px 18px; }
+.dark .team-card-photo-img { background: #0f1a2c; }

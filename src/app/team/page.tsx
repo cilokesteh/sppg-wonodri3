@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Tim SPPG Wonodri 3 — Struktur & Personel Dapur MBG",
     description:
-      "36 personel dalam 8 tim operasional — kenali struktur dan personel di balik 1.577 porsi makan bergizi setiap hari.",
+      "36 personel dalam 8 tim operasional — kenali struktur dan personel di balik 1.576 porsi makan bergizi setiap hari.",
     url: "https://sppgwonodri3.web.id/team/",
     siteName: "SPPG Wonodri 3",
   },
