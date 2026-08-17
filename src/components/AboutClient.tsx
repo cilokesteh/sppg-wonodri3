@@ -8,9 +8,9 @@ function PageHero({ kicker, title, lead }: { kicker: string; title: string; lead
   return (
     <section className="page-hero">
       <div className="container">
-        <span className="kicker reveal">{kicker}</span>
-        <h1 className="reveal">{title}</h1>
-        {lead ? <p className="page-lead reveal">{lead}</p> : null}
+        <Reveal><span className="kicker">{kicker}</span></Reveal>
+        <Reveal delay={0.08}><h1>{title}</h1></Reveal>
+        {lead ? <Reveal delay={0.16}><p className="page-lead">{lead}</p></Reveal> : null}
       </div>
     </section>
   );

@@ -2,7 +2,7 @@
 
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, CtaBand } from "./ui";
-import { RevealGrid } from "./motion";
+import { Reveal, RevealGrid } from "./motion";
 
 export default function ServiceClient() {
   const { dict } = useI18n();
@@ -22,9 +22,9 @@ export default function ServiceClient() {
     <>
       <section className="page-hero">
         <div className="container">
-          <span className="kicker reveal">{t("sv.kicker", dict)}</span>
-          <h1 className="reveal">{t("sv.title", dict)}</h1>
-          <p className="page-lead reveal">{t("sv.lead", dict)}</p>
+          <Reveal><span className="kicker">{t("sv.kicker", dict)}</span></Reveal>
+          <Reveal delay={0.08}><h1>{t("sv.title", dict)}</h1></Reveal>
+          <Reveal delay={0.16}><p className="page-lead">{t("sv.lead", dict)}</p></Reveal>
         </div>
       </section>
       <section className="section section-tight">

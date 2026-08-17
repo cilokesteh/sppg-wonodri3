@@ -13,9 +13,9 @@ export function ArticleListClient({ articles }: { articles: Article[] }) {
     <>
       <section className="page-hero">
         <div className="container">
-          <span className="kicker reveal">{t("art.kicker", dict)}</span>
-          <h1 className="reveal">{t("art.title", dict)}</h1>
-          <p className="page-lead reveal">{t("art.lead", dict)}</p>
+          <Reveal><span className="kicker">{t("art.kicker", dict)}</span></Reveal>
+          <Reveal delay={0.08}><h1>{t("art.title", dict)}</h1></Reveal>
+          <Reveal delay={0.16}><p className="page-lead">{t("art.lead", dict)}</p></Reveal>
         </div>
       </section>
 
@@ -55,19 +55,19 @@ export function ArticleDetailClient({ article }: { article: Article }) {
             <span aria-hidden="true">/</span>
             <span>{article.title.slice(0, 40)}…</span>
           </nav>
-          <span className="kicker reveal">{article.category}</span>
-          <h1 className="reveal">{article.title}</h1>
-          <div className="blog-meta reveal">
+          <Reveal><span className="kicker">{article.category}</span></Reveal>
+          <Reveal delay={0.08}><h1>{article.title}</h1></Reveal>
+          <Reveal delay={0.16}><div className="blog-meta">
             <span>{article.date}</span>
             <span>•</span>
             <span>{article.readTime}</span>
-          </div>
+          </div></Reveal>
         </div>
       </section>
 
       <section className="section">
         <div className="container container-narrow">
-          <article className="article-body reveal">
+          <Reveal><article className="article-body">
             {article.content.map((block, i) => (
               <div key={i}>
                 {block.h && <h2>{block.h}</h2>}
@@ -86,7 +86,7 @@ export function ArticleDetailClient({ article }: { article: Article }) {
                 <span key={k}>#{k.replace(/\s+/g, "")}</span>
               ))}
             </div>
-          </article>
+          </article></Reveal>
 
           <Reveal className="article-cta" dir="up">
             <h3>{t("art.next", dict)}</h3>

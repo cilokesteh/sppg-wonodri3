@@ -12,26 +12,32 @@ function Hero() {
     <section className="hero">
       <div className="container hero-grid">
         <div>
-          <span className="kicker">{t("hero.kicker", dict)}</span>
-          <h1>
-            {t("hero.h1a", dict)} <span className="grad">{t("hero.h1b", dict)}</span>
-          </h1>
-          <p className="hero-desc">{t("hero.desc", dict)}</p>
-          <div className="hero-actions">
-            <Link href="/service/" className="btn btn-primary">{t("hero.cta1", dict)}</Link>
-            <Link href="/about/" className="btn btn-outline">{t("hero.cta2", dict)}</Link>
-          </div>
-          <div className="hero-trust">
-            {["trust.1", "trust.2", "trust.3"].map((k) => (
-              <div className="trust-item" key={k}>
-                <b>{k === "trust.1" ? "1.577" : k === "trust.2" ? "12+1" : "100%"}</b>
-                <span>{t(k, dict)}</span>
-              </div>
-            ))}
-          </div>
+          <Reveal><span className="kicker">{t("hero.kicker", dict)}</span></Reveal>
+          <Reveal delay={0.08}>
+            <h1>
+              {t("hero.h1a", dict)} <span className="grad">{t("hero.h1b", dict)}</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.16}><p className="hero-desc">{t("hero.desc", dict)}</p></Reveal>
+          <Reveal delay={0.24}>
+            <div className="hero-actions">
+              <Link href="/service/" className="btn btn-primary">{t("hero.cta1", dict)}</Link>
+              <Link href="/about/" className="btn btn-outline">{t("hero.cta2", dict)}</Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.32}>
+            <div className="hero-trust">
+              {["trust.1", "trust.2", "trust.3"].map((k) => (
+                <div className="trust-item" key={k}>
+                  <b>{k === "trust.1" ? "1.577" : k === "trust.2" ? "12+1" : "100%"}</b>
+                  <span>{t(k, dict)}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
 
-        <div className="hero-visual">
+        <Reveal delay={0.2} className="hero-visual">
           <TiltCard className="hero-card" maxDeg={5}>
             <img src="/assets/hero-kitchen.jpg" alt="Dapur SPPG Wonodri 3" width={520} height={390} fetchPriority="high" />
             <div className="hero-float">
@@ -49,7 +55,7 @@ function Hero() {
               </div>
             </div>
           </TiltCard>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

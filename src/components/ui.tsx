@@ -7,11 +7,11 @@ import { Reveal } from "./motion";
 
 export function SectionHead({ kicker, title, desc, center = true }: { kicker: string; title: string; desc?: string; center?: boolean }) {
   return (
-    <div className={`section-head ${center ? "center" : ""} reveal`}>
+    <Reveal className={`section-head ${center ? "center" : ""}`}>
       <span className="kicker">{kicker}</span>
       <h2 className="grad-title">{title}</h2>
       {desc ? <p>{desc}</p> : null}
-    </div>
+    </Reveal>
   );
 }
 

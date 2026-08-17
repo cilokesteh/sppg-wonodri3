@@ -33,7 +33,8 @@ export default function TeamPage() {
     description:
       "Satuan Pelayanan Pemenuhan Gizi Wonodri 3 — tim 36 personel dalam 8 unit operasional dapur MBG di Semarang Selatan.",
     employee: [
-      { "@type": "Person", jobTitle: "Kepala Satuan Pelayanan (KASPPG)" },
+      { "@type": "Person", jobTitle: "Kepala Satuan Pelayanan (KASPPG)", name: "Dicky Yusuf M" },
+      { "@type": "Person", jobTitle: "Perwakilan Yayasan", name: "Ivan Gouw" },
       { "@type": "Person", jobTitle: "Chef", name: "Ryan" },
       { "@type": "Person", jobTitle: "Ahli Gizi", name: "Sintia" },
       { "@type": "Person", jobTitle: "Akuntan", name: "Salsa" },

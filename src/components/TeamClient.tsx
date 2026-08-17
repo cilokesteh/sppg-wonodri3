@@ -43,9 +43,9 @@ export default function TeamClient() {
     <>
       <section className="page-hero">
         <div className="container">
-          <span className="kicker reveal">{t("team.kicker", dict)}</span>
-          <h1 className="reveal">{t("team.title", dict)}</h1>
-          <p className="page-lead reveal">{t("team.lead", dict)}</p>
+          <Reveal><span className="kicker">{t("team.kicker", dict)}</span></Reveal>
+          <Reveal delay={0.08}><h1>{t("team.title", dict)}</h1></Reveal>
+          <Reveal delay={0.16}><p className="page-lead">{t("team.lead", dict)}</p></Reveal>
         </div>
       </section>
 
@@ -54,18 +54,18 @@ export default function TeamClient() {
         <div className="container">
           <SectionHead kicker={t("team.top.kicker", dict)} title={t("team.top.title", dict)} desc={t("team.top.desc", dict)} />
           <RevealGrid className="team-lead-grid" dir="alternate">
-            <div className="team-card team-card-lead">
+            <TiltCard className="team-card team-card-lead" maxDeg={6}>
               <div className="avatar-lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
               <span className="team-badge">{t("team.badge.kasppg", dict)}</span>
               <h3>{t("team.kasppg", dict)}</h3>
-              <p className="team-name">{t("team.placeholder", dict)}</p>
-            </div>
-            <div className="team-card team-card-lead">
+              <p className="team-name">Dicky Yusuf M</p>
+            </TiltCard>
+            <TiltCard className="team-card team-card-lead" maxDeg={6}>
               <div className="avatar-lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
               <span className="team-badge team-badge-alt">{t("team.badge.yayasan", dict)}</span>
               <h3>{t("team.yayasan", dict)}</h3>
-              <p className="team-name">{t("team.placeholder", dict)}</p>
-            </div>
+              <p className="team-name">Ivan Gouw</p>
+            </TiltCard>
           </RevealGrid>
         </div>
       </section>

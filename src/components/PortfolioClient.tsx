@@ -2,7 +2,7 @@
 
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, CtaBand } from "./ui";
-import { RevealGrid } from "./motion";
+import { Reveal, RevealGrid } from "./motion";
 import { TiltCard } from "./TiltCard";
 
 export default function PortfolioClient() {
@@ -26,9 +26,9 @@ export default function PortfolioClient() {
     <>
       <section className="page-hero">
         <div className="container">
-          <span className="kicker reveal">{t("pf.kicker", dict)}</span>
-          <h1 className="reveal">{t("pf.title", dict)}</h1>
-          <p className="page-lead reveal">{t("pf.lead", dict)}</p>
+          <Reveal><span className="kicker">{t("pf.kicker", dict)}</span></Reveal>
+          <Reveal delay={0.08}><h1>{t("pf.title", dict)}</h1></Reveal>
+          <Reveal delay={0.16}><p className="page-lead">{t("pf.lead", dict)}</p></Reveal>
         </div>
       </section>
       <section className="section section-tight">
