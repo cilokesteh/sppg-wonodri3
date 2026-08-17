@@ -39,6 +39,12 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+/* overflow-x: clip di html+body — cegah horizontal scroll & crop kiri di mobile.
+   (fallback hidden utk browser lama) */
+html { overflow-x: clip; }
+@supports not (overflow: clip) {
+  html, body { overflow-x: hidden; }
+}
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-lexend), var(--font-source), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -102,7 +108,7 @@ p { color: var(--ink-soft); }
   border-bottom: 1px solid transparent; transition: all .3s ease;
 }
 .nav.scrolled { border-bottom-color: var(--line); background: rgba(255,255,255,.88); box-shadow: 0 4px 24px rgba(13,40,80,.06); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; padding: 0 20px; }
 .brand { display: flex; align-items: center; gap: 13px; font-weight: 800; font-size: 1.06rem; color: var(--navy); letter-spacing: -0.02em; }
 .brand-mark {
   width: 44px; height: 44px; border-radius: 50%;
@@ -136,9 +142,10 @@ p { color: var(--ink-soft); }
 
 .drawer {
   position: fixed; inset: 0; z-index: 999; background: rgba(5, 16, 34, .5);
-  backdrop-filter: blur(6px); opacity: 0; pointer-events: none; transition: opacity .3s;
+  backdrop-filter: blur(6px); opacity: 0; pointer-events: none;
+  visibility: hidden; transition: opacity .3s, visibility .3s;
 }
-.drawer.open { opacity: 1; pointer-events: auto; }
+.drawer.open { opacity: 1; pointer-events: auto; visibility: visible; }
 .drawer-panel {
   position: absolute; top: 0; right: 0; bottom: 0; width: 78%; max-width: 340px;
   background: #fff; padding: 92px 28px 28px; display: flex; flex-direction: column; gap: 8px;
@@ -535,7 +542,7 @@ html.js .reveal.d4 { animation-delay: .32s; }
   .footer-about { max-width: none; }
   .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
   /* Nav */
-  .nav-inner { height: 64px; }
+  .nav-inner { height: 64px; padding: 0 16px; }
   .brand { font-size: .95rem; gap: 10px; }
   .brand-mark { width: 38px; height: 38px; }
   .brand small { font-size: .6rem; }

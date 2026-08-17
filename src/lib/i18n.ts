@@ -5,6 +5,7 @@ export const idDict = {
   "nav.team": "Tim",
   "nav.portfolio": "Portfolio",
   "nav.cta": "Kritik & Saran",
+  "brand.sub": "Satuan Pelayanan Pemenuhan Gizi",
 
   "hero.kicker": "Satuan Pelayanan Pemenuhan Gizi",
   "hero.h1a": "Dapur MBG Wonodri 3",
@@ -197,6 +198,7 @@ export const enDict = {
   "nav.team": "Team",
   "nav.portfolio": "Portfolio",
   "nav.cta": "Feedback",
+  "brand.sub": "Nutrition Fulfillment Service Unit",
 
   "hero.kicker": "Nutrition Fulfillment Service Unit",
   "hero.h1a": "MBG Kitchen Wonodri 3",

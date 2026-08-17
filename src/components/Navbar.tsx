@@ -113,7 +113,7 @@ export function Navbar() {
             </span>
             <span>
               SPPG Wonodri 3
-              <small>Nutrition Fulfillment Service Unit</small>
+              <small>{t("brand.sub", dict)}</small>
             </span>
           </Link>
 
