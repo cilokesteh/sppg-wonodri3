@@ -22,16 +22,21 @@ function Avatar({ icon = "user" }: { icon?: "user" | "stack" }) {
 
 export default function TeamClient() {
   const { dict } = useI18n();
-  const staff = ["team.chef", "team.gizi", "team.akuntan", "team.aslap"];
+  const staff = [
+    { role: "team.chef", name: "Ryan" },
+    { role: "team.gizi", name: "Sintia" },
+    { role: "team.akuntan", name: "Salsa" },
+    { role: "team.aslap", name: "Hakim" },
+  ];
   const ops = [
-    { k: "team.persiapan", count: null },
-    { k: "team.pengolahan", count: null },
-    { k: "team.pemorsian", count: null },
-    { k: "team.packing", count: null },
-    { k: "team.distribusi", count: null },
-    { k: "team.cuci", count: null },
-    { k: "team.keamanan", count: "team.keamanan.count", stack: true },
-    { k: "team.kebersihan", count: "team.kebersihan.count" },
+    { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"] },
+    { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"] },
+    { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"] },
+    { k: "team.packing", members: ["Sin"] },
+    { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"] },
+    { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
+    { k: "team.keamanan", members: ["Andrie", "Bambang"], stack: true },
+    { k: "team.kebersihan", members: ["Sutiman"] },
   ];
   return (
     <>
@@ -69,11 +74,11 @@ export default function TeamClient() {
         <div className="container">
           <SectionHead kicker={t("team.staff.kicker", dict)} title={t("team.staff.title", dict)} />
           <RevealGrid className="team-grid" dir="alternate">
-            {staff.map((k, i) => (
+            {staff.map((s, i) => (
               <div className="team-card team-card-multi" key={i}>
                 <Avatar />
-                <h3>{t(k, dict)}</h3>
-                <p className="team-name">{t("team.placeholder", dict)}</p>
+                <h3>{t(s.role, dict)}</h3>
+                <p className="team-name">{s.name}</p>
               </div>
             ))}
           </RevealGrid>
@@ -89,7 +94,7 @@ export default function TeamClient() {
               <Avatar />
               <div className="admin-body">
                 <h3>{t("team.adminRole", dict)}</h3>
-                <p className="team-name">{t("team.placeholder", dict)}</p>
+                <p className="team-name">Nur Khafidin</p>
               </div>
               <p className="admin-desc">{t("team.admin.desc", dict)}</p>
             </Reveal>
@@ -106,9 +111,16 @@ export default function TeamClient() {
               <div className="team-card team-card-multi" key={i}>
                 <Avatar icon={o.stack ? "stack" : "user"} />
                 <h3>{t(o.k, dict)}</h3>
-                <p className="team-name">
-                  {o.count ? t(o.count, dict) : t("team.ops.members", dict)}
-                </p>
+                {o.members.length ? (
+                  <ul className={`team-members ${o.members.length >= 6 ? "two-col" : ""}`}>
+                    {o.members.map((m) => (
+                      <li key={m}>{m}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="team-name" style={{ margin: "6px 0" }}>{t("team.placeholder", dict)}</p>
+                )}
+                <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>
               </div>
             ))}
           </RevealGrid>

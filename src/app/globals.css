@@ -362,6 +362,26 @@ p { color: var(--ink-soft); }
 .team-card.team-card-admin .admin-body h3 { margin-bottom: 2px; white-space: nowrap; }
 .team-card.team-card-admin .admin-desc { font-size: .88rem; color: var(--muted); margin-left: auto; max-width: 300px; text-align: left; }
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+/* Member list per tim */
+.team-members {
+  list-style: none; width: 100%; margin: 6px 0 10px;
+  padding: 0; text-align: left;
+}
+.team-members li {
+  font-size: .78rem; color: var(--ink-soft); padding: 3px 2px;
+  border-bottom: 1px dashed var(--line); line-height: 1.35;
+}
+.team-members li:last-child { border-bottom: none; }
+.team-members.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
+.team-members.two-col li { border-bottom: none; }
+.team-card .team-count {
+  font-size: .78rem; font-weight: 700; color: var(--sky-600);
+  margin-top: auto; padding-top: 6px;
+}
+.dark .team-members li { border-bottom-color: #1c2b42; }
+.dark .team-card .team-count { color: #8abcf5; }
+/* Tim 1 orang: kartu di tengah, gak nempel kiri */
+.team-card.solo { grid-column: 1 / -1; justify-self: center; width: min(100%, 300px); }
 .team-card {
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
   padding: 24px 18px; text-align: center; display: flex; flex-direction: column; align-items: center;
