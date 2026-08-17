@@ -1584,3 +1584,6 @@ section[id] { scroll-margin-top: 96px; }
   .team-photo-wide-card .team-photo-cap b { font-size: .82rem !important; }
   .team-photo-wide-card .team-photo-names i { font-size: .6rem !important; }
 }
+
+/* ── Stack foto tim: tiap kartu lebar berurutan ke bawah ── */
+.ops-photo-stack { display: flex; flex-direction: column; gap: 18px; margin-bottom: 20px; }

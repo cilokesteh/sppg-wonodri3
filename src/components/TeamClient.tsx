@@ -108,29 +108,33 @@ export default function TeamClient() {
         <div className="container">
           <SectionHead kicker={t("team.ops.kicker", dict)} title={t("team.ops.title", dict)} desc={t("team.ops.desc", dict)} />
           {(() => {
-            const o = ops.find((x) => x.photo);
-            if (!o) return null;
+            const photoOps = ops.filter((x) => x.photo);
+            if (!photoOps.length) return null;
             return (
-              <Reveal className="ops-photo-wide" dir="up">
-                <TiltCard className="team-card team-photo-wide-card">
-                  <div className="team-photo-media">
-                    <picture>
-                      <source srcSet={o.photoWebp} type="image/webp" />
-                      <img src={o.photo} alt={t(o.k, dict)} width={1200} height={903} loading="lazy" />
-                    </picture>
-                    <div className="team-photo-cap">
-                      <b>{t(o.k, dict)}</b>
-                      {o.photoNames && (
-                        <span className="team-photo-names">
-                          {o.photoNames.map((n, ni) => (
-                            <i key={ni}>{n}</i>
-                          ))}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </TiltCard>
-              </Reveal>
+              <div className="ops-photo-stack">
+                {photoOps.map((o, i) => (
+                  <Reveal className="ops-photo-wide" dir="up" key={i}>
+                    <TiltCard className="team-card team-photo-wide-card">
+                      <div className="team-photo-media">
+                        <picture>
+                          <source srcSet={o.photoWebp} type="image/webp" />
+                          <img src={o.photo} alt={t(o.k, dict)} width={1200} height={903} loading="lazy" />
+                        </picture>
+                        <div className="team-photo-cap">
+                          <b>{t(o.k, dict)}</b>
+                          {o.photoNames && (
+                            <span className="team-photo-names">
+                              {o.photoNames.map((n, ni) => (
+                                <i key={ni}>{n}</i>
+                              ))}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </TiltCard>
+                  </Reveal>
+                ))}
+              </div>
             );
           })()}
           <RevealGrid className="team-grid" dir="alternate">
