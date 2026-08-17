@@ -8,6 +8,10 @@ export type RevealDir = "up" | "left" | "right" | "alternate";
 // Smooth ease-out (expo-ish): slow start, gentle landing — jauh lebih lembut dari default
 const EASE = [0.12, 1, 0.22, 1] as [number, number, number, number];
 
+// Preferensi Tuan: reveal LAMBAT & smooth — durasi 1.9s, blur dalam, slide 64px
+const DUR = 1.9;
+const BLUR = "12px";
+
 /**
  * Single-element scroll reveal (slide in from side/bottom when scrolled into view).
  * once=true → reveals once and stays visible (never stuck hidden).
@@ -35,10 +39,10 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, ...hidden, filter: "blur(8px)" }}
+      initial={{ opacity: 0, ...hidden, filter: `blur(${BLUR})` }}
       whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
       viewport={{ once, margin: "-40px" }}
-      transition={{ duration: 1.6, delay, ease: EASE }}
+      transition={{ duration: DUR, delay, ease: EASE }}
     >
       {children}
     </motion.div>
@@ -67,8 +71,8 @@ export function RevealGrid({
     const x = dir === "alternate" ? (i % 2 === 0 ? -64 : 64) : dir === "left" ? -64 : dir === "right" ? 64 : 0;
     const y = dir === "up" ? 44 : 0;
     const v: Variants = {
-      hidden: { opacity: 0, x, y, filter: "blur(8px)" },
-      show: { opacity: 1, x: 0, y: 0, filter: "blur(0px)", transition: { duration: 1.5, ease: EASE } },
+      hidden: { opacity: 0, x, y, filter: `blur(${BLUR})` },
+      show: { opacity: 1, x: 0, y: 0, filter: "blur(0px)", transition: { duration: DUR, ease: EASE } },
     };
     return (
       <motion.div key={i} variants={v}>

@@ -176,6 +176,11 @@ p { color: var(--ink-soft); }
   background: linear-gradient(120deg, #2f86e6 10%, #1759ab 55%, #2f86e6 90%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   background-size: 200% 100%;
+  animation: gradShift 8s ease-in-out infinite;
+}
+@keyframes gradShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 .hero-desc { font-size: 1.18rem; max-width: 520px; margin-bottom: 30px; color: #4a5b76; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
@@ -195,8 +200,13 @@ p { color: var(--ink-soft); }
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-radius: 16px; border: 1px solid #e6eef9; box-shadow: 0 20px 48px rgba(13,40,80,.16);
   padding: 16px 20px; display: flex; align-items: center; gap: 13px;
+  animation: floatY 5.5s ease-in-out infinite;
 }
-.hero-float-2 { left: auto; right: -26px; top: -22px; bottom: auto; animation-delay: 1.6s; }
+.hero-float-2 { left: auto; right: -26px; top: -22px; bottom: auto; animation-delay: -2.75s; }
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
 .hero-float .ic { width: 44px; height: 44px; border-radius: 13px; background: var(--sky-100); color: var(--sky-600); display: grid; place-items: center; }
 .hero-float .ic svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .hero-float b { display: block; font-size: .93rem; color: var(--navy); letter-spacing: -0.01em; }
@@ -391,7 +401,7 @@ p { color: var(--ink-soft); }
   content: ""; position: absolute; inset: auto 0 0 0; height: 3px;
   background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
 }
-.team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: #cfe0f5; }
+.team-card:hover { transform: translateY(-8px) perspective(900px) rotateX(2deg) rotateY(2deg); box-shadow: var(--shadow-lg); border-color: #cfe0f5; }
 .team-card:hover::after { transform: scaleX(1); }
 .team-card h3 { color: var(--navy); font-size: 1.05rem; margin-bottom: 6px; }
 .team-card .team-name { font-size: .9rem; color: var(--muted); }
@@ -705,6 +715,13 @@ body { background: linear-gradient(180deg, #fff 0%, #f7fbff 45%, #fff 100%); }
   box-shadow: 0 1px 3px rgba(13,40,80,.04), 0 14px 34px -12px rgba(13,40,80,.12);
 }
 .blog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: #cfe0f5; }
+.blog-card:hover h3 { color: var(--sky-700); }
+.blog-card::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(120deg, transparent 30%, rgba(95,168,240,.10) 50%, transparent 70%);
+  transform: translateX(-110%); transition: transform .7s ease;
+}
+.blog-card:hover::after { transform: translateX(110%); }
 .blog-cat {
   align-self: flex-start; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   color: var(--sky-700); background: var(--sky-100); padding: 4px 12px; border-radius: 999px;
@@ -744,8 +761,12 @@ body { background: linear-gradient(180deg, #fff 0%, #f7fbff 45%, #fff 100%); }
 }
 
 /* ── Cards: depth shadow + gradient border ── */
-.card, .why-item, .step, .team-card, .faq-item {
-  box-shadow: 0 1px 3px rgba(13,40,80,.04), 0 14px 34px -12px rgba(13,40,80,.12);
+.tilt-glare {
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  z-index: 2; transition: opacity .25s ease;
+}
+.card, .why-item, .step, .team-card, .faq-item, .blog-card, .g-item {
+  position: relative; transform-style: preserve-3d; will-change: transform;
 }
 .card {
   background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(249,252,255,.9));

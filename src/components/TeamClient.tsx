@@ -3,6 +3,7 @@
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, CtaBand } from "./ui";
 import { Reveal, RevealGrid } from "./motion";
+import { TiltCard } from "./TiltCard";
 
 function Avatar({ icon = "user" }: { icon?: "user" | "stack" }) {
   if (icon === "stack") {
@@ -75,11 +76,11 @@ export default function TeamClient() {
           <SectionHead kicker={t("team.staff.kicker", dict)} title={t("team.staff.title", dict)} />
           <RevealGrid className="team-grid" dir="alternate">
             {staff.map((s, i) => (
-              <div className="team-card team-card-multi" key={i}>
+              <TiltCard className="team-card team-card-multi" key={i}>
                 <Avatar />
                 <h3>{t(s.role, dict)}</h3>
                 <p className="team-name">{s.name}</p>
-              </div>
+              </TiltCard>
             ))}
           </RevealGrid>
         </div>
@@ -108,7 +109,7 @@ export default function TeamClient() {
           <SectionHead kicker={t("team.ops.kicker", dict)} title={t("team.ops.title", dict)} desc={t("team.ops.desc", dict)} />
           <RevealGrid className="team-grid" dir="alternate">
             {ops.map((o, i) => (
-              <div className="team-card team-card-multi" key={i}>
+              <TiltCard className="team-card team-card-multi" key={i}>
                 <Avatar icon={o.stack ? "stack" : "user"} />
                 <h3>{t(o.k, dict)}</h3>
                 {o.members.length ? (
@@ -121,7 +122,7 @@ export default function TeamClient() {
                   <p className="team-name" style={{ margin: "6px 0" }}>{t("team.placeholder", dict)}</p>
                 )}
                 <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>
-              </div>
+              </TiltCard>
             ))}
           </RevealGrid>
         </div>

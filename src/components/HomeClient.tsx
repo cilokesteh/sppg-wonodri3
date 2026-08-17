@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, FaqSection, CtaBand, ContactSection } from "./ui";
 import { Reveal, RevealGrid } from "./motion";
+import { TiltCard } from "./TiltCard";
 
 function Hero() {
   const { dict } = useI18n();
@@ -31,7 +32,7 @@ function Hero() {
         </div>
 
         <div className="hero-visual">
-          <div className="hero-card">
+          <TiltCard className="hero-card" maxDeg={5}>
             <img src="/assets/hero-kitchen.jpg" alt="Dapur SPPG Wonodri 3" width={520} height={390} fetchPriority="high" />
             <div className="hero-float">
               <span className="ic">{ICONS.flame}</span>
@@ -47,7 +48,7 @@ function Hero() {
                 <span>{t("hero.float2.s", dict)}</span>
               </div>
             </div>
-          </div>
+          </TiltCard>
         </div>
       </div>
     </section>
@@ -109,11 +110,11 @@ function Services() {
         <SectionHead kicker={t("prog.kicker", dict)} title={t("prog.title", dict)} desc={t("prog.desc", dict)} />
         <RevealGrid className="grid-4" dir="alternate">
           {items.map((item, i) => (
-            <div className="card" key={i}>
+            <TiltCard className="card" key={i}>
               <div className="ic">{ICONS[item.icon]}</div>
               <h3>{t(item.kt, dict)}</h3>
               <p>{t(item.kd, dict)}</p>
-            </div>
+            </TiltCard>
           ))}
         </RevealGrid>
       </div>
@@ -135,14 +136,14 @@ function WhyUs() {
         <SectionHead kicker={t("why.kicker", dict)} title={t("why.title", dict)} desc={t("why.desc", dict)} />
         <RevealGrid className="why-grid" dir="alternate">
           {items.map((item, i) => (
-            <div className="why-item" key={i}>
+            <TiltCard className="why-item" key={i}>
               <span className="num">{String(i + 1).padStart(2, "0")}</span>
               <div>
                 <h3>{t(item.kt, dict)}</h3>
                 <p>{t(item.kd, dict)}</p>
               </div>
               <span className="ic">{ICONS[item.icon]}</span>
-            </div>
+            </TiltCard>
           ))}
         </RevealGrid>
       </div>

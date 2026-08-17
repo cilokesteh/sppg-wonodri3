@@ -3,6 +3,7 @@
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, CtaBand } from "./ui";
 import { RevealGrid } from "./motion";
+import { TiltCard } from "./TiltCard";
 
 export default function PortfolioClient() {
   const { dict } = useI18n();
@@ -34,11 +35,11 @@ export default function PortfolioClient() {
         <div className="container">
           <RevealGrid className="grid-3" dir="alternate">
             {cards.map((c, i) => (
-              <div className="card value-item" key={i}>
+              <TiltCard className="card value-item" key={i}>
                 <div className="ic">{ICONS[c.icon]}</div>
                 <h3>{t(c.kt, dict)}</h3>
                 <p>{t(c.kd, dict)}</p>
-              </div>
+              </TiltCard>
             ))}
           </RevealGrid>
         </div>
@@ -48,7 +49,7 @@ export default function PortfolioClient() {
           <SectionHead kicker={t("pf.gal.kicker", dict)} title={t("pf.gal.title", dict)} />
           <RevealGrid className="gallery" dir="alternate">
             {gallery.map((g, i) => (
-              <div className="g-item" key={i}>
+              <TiltCard className="g-item" key={i} maxDeg={6}>
                 {g.icon ? (
                   <div className="g-ph">
                     <span className="ic">{ICONS[g.icon]}</span>
@@ -58,7 +59,7 @@ export default function PortfolioClient() {
                   <img src={(g as unknown as { src: string }).src} alt={t(g.cap, dict)} width={480} height={360} loading="lazy" />
                 )}
                 <span className="g-cap" aria-hidden="true">{t(g.cap, dict)}</span>
-              </div>
+              </TiltCard>
             ))}
           </RevealGrid>
         </div>

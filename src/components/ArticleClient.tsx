@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useI18n, t } from "./I18nProvider";
 import { CtaBand } from "./ui";
 import { Reveal, RevealGrid } from "./motion";
+import { TiltCard } from "./TiltCard";
 import type { Article } from "@/lib/articles";
 
 export function ArticleListClient({ articles }: { articles: Article[] }) {
