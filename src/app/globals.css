@@ -450,8 +450,9 @@ html.js .reveal.d4 { animation-delay: .32s; }
 
 /* ── Responsive ── */
 @media (max-width: 960px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 64px; }
-  .hero { padding: 148px 0 92px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero { padding: 120px 0 72px; }
+  .hero-visual { max-width: 480px; margin: 0 auto; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -462,33 +463,102 @@ html.js .reveal.d4 { animation-delay: .32s; }
   .lang-switch { margin-left: 0; }
 }
 @media (max-width: 640px) {
-  .section { padding: 56px 0; }
+  .container { padding: 0 16px; }
+  .section { padding: 48px 0; }
+  .section-tight { padding: 36px 0; }
+  h1 { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .hero { padding: 100px 0 56px; }
+  .hero-desc { font-size: 1rem; }
+  .hero-actions { flex-direction: column; gap: 10px; }
+  .hero-actions .btn { width: 100%; text-align: center; }
+  .hero-trust { gap: 20px; flex-direction: column; }
+  .trust-item b { font-size: 1.1rem; }
+  .hero-float { left: 8px; bottom: -18px; padding: 12px 14px; gap: 10px; }
+  .hero-float .ic { width: 36px; height: 36px; border-radius: 10px; }
+  .hero-float .ic svg { width: 18px; height: 18px; }
+  .hero-float b { font-size: .82rem; }
+  .hero-float span { font-size: .72rem; }
+  .hero-float-2 { display: none; }
   .grid-3, .grid-4, .steps, .gallery { grid-template-columns: 1fr; }
+  .card { padding: 20px; }
+  .card .ic { width: 44px; height: 44px; border-radius: 12px; margin-bottom: 12px; }
+  .card .ic svg { width: 22px; height: 22px; }
+  .card h3 { font-size: 1rem; }
+  .card p { font-size: .9rem; }
+  /* Stats strip */
+  .stats-wrap { margin-top: -28px; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 24px 18px; gap: 16px; }
+  .stats-strip .st b { font-size: 1.2rem; }
+  .stats-strip .st span { font-size: .8rem; }
+  .stats-strip .st { padding-left: 14px; }
+  .stats-strip .st::before { height: 26px; width: 2.5px; }
+  /* Why grid */
+  .why-grid { grid-template-columns: 1fr; gap: 14px; }
+  .why-item { padding: 18px 16px; gap: 14px; }
+  .why-item h3 { font-size: 1rem; }
+  .why-item p { font-size: .88rem; }
+  /* Home gallery */
+  .home-gallery { grid-template-columns: 1fr; gap: 12px; }
+  /* CTA band */
+  .cta-band { padding: 44px 20px; border-radius: 18px; }
+  .cta-band h2 { font-size: 1.5rem; }
+  .cta-band p { font-size: .95rem; }
+  /* Contact */
+  .contact-info .card { padding: 20px; }
+  .info-row .ic { width: 38px; height: 38px; border-radius: 10px; }
+  .info-row b { font-size: .88rem; }
+  .info-row span, .info-row a { font-size: .85rem; }
+  .map-wrap iframe { min-height: 280px; }
   /* Team tiers always side-by-side (sejajar), never stacked */
-  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .team-lead-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .team-lead-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .team-admin-grid { grid-template-columns: minmax(0, 280px); }
-  .team-card-admin { flex-direction: column; text-align: center; gap: 12px; padding: 22px 14px; }
+  .team-card-admin { flex-direction: column; text-align: center; gap: 12px; padding: 18px 14px; }
   .team-card-admin .avatar { margin: 0 auto; }
   .team-card-admin .admin-desc { margin: 0; max-width: none; text-align: center; }
-  .team-card { padding: 22px 14px; }
-  .team-card-lead { padding: 28px 16px; }
-  .avatar-lg { width: 88px; height: 88px; }
-  .avatar-lg svg { width: 42px; height: 42px; }
-  .avatar { width: 68px; height: 68px; }
-  .avatar svg { width: 30px; height: 30px; }
-  .avatar-stack { height: 68px; }
-  .team-card h3 { font-size: .92rem; }
-  .why-grid { grid-template-columns: 1fr; }
-  .home-gallery { grid-template-columns: 1fr; }
-  .stats-strip { grid-template-columns: repeat(2, 1fr); padding: 32px 24px; }
-  .stats-strip .st b { font-size: 1.35rem; }
-  .hero-float { left: 10px; bottom: -22px; }
-  .hero-float-2 { display: none; }
-  .cta-band { padding: 52px 24px; }
-  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-  .hero-actions .btn { width: 100%; }
-  .hero-trust { gap: 24px; }
+  .team-card { padding: 18px 12px; }
+  .team-card-lead { padding: 22px 14px; }
+  .avatar-lg { width: 80px; height: 80px; }
+  .avatar-lg svg { width: 38px; height: 38px; }
+  .avatar { width: 60px; height: 60px; }
+  .avatar svg { width: 28px; height: 28px; }
+  .avatar-stack { height: 60px; }
+  .team-card h3 { font-size: .88rem; }
+  .team-badge { font-size: .66rem; padding: 4px 10px; }
+  /* FAQ */
+  .faq-q { padding: 14px 16px; font-size: .93rem; }
+  .faq-a p { padding: 0 16px 14px; font-size: .9rem; }
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  footer { padding: 40px 0 24px; }
+  .footer-about { max-width: none; }
+  .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+  /* Nav */
+  .nav-inner { height: 64px; }
+  .brand { font-size: .95rem; gap: 10px; }
+  .brand-mark { width: 38px; height: 38px; }
+  .brand small { font-size: .6rem; }
+  /* Page hero */
+  .page-hero { padding: 100px 0 32px; }
+  .page-hero h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .page-hero p { font-size: 1rem; }
+  .breadcrumb { font-size: .78rem; }
+  /* Marquee */
+  .marquee { padding: 12px 0; }
+  .marquee-track > span { gap: 28px; padding-right: 28px; font-size: .78rem; }
+  /* Drawer panel full-width */
+  .drawer-panel { width: 88%; max-width: 360px; padding: 80px 24px 24px; }
+}
+@media (max-width: 380px) {
+  .container { padding: 0 12px; }
+  .hero { padding: 88px 0 44px; }
+  h1 { font-size: 1.7rem; }
+  .stats-strip { grid-template-columns: 1fr 1fr; padding: 20px 14px; gap: 12px; }
+  .stats-strip .st b { font-size: 1.05rem; }
+  .team-grid { grid-template-columns: 1fr; }
+  .team-lead-grid { grid-template-columns: 1fr; }
+  .team-card, .team-card-lead { padding: 18px 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
