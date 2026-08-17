@@ -668,6 +668,33 @@ body { background: linear-gradient(180deg, #fff 0%, #f7fbff 45%, #fff 100%); }
 .btn-primary:hover::after { left: 135%; }
 .btn-outline { background: rgba(255,255,255,.6); }
 
+/* ── Gallery placeholder (foto asli menyusul) ── */
+.g-item .g-ph {
+  aspect-ratio: 4 / 3; width: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  background: linear-gradient(140deg, var(--sky-100), var(--sky-50));
+  border: 1px dashed var(--sky-300);
+  border-radius: var(--radius); color: var(--sky-500);
+}
+.g-item .g-ph .ic {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,.85);
+  display: grid; place-items: center;
+}
+.g-item .g-ph .ic svg {
+  width: 26px; height: 26px; stroke: currentColor; fill: none;
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.g-item .g-ph .ph-badge {
+  font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--sky-600);
+  background: rgba(255,255,255,.75);
+  padding: 5px 14px; border-radius: 999px;
+}
+.dark .g-item .g-ph { background: linear-gradient(140deg, #182a45, #0f1a2c); border-color: #1c2b42; }
+.dark .g-item .g-ph .ic { background: #111f33; color: #8abcf5; }
+.dark .g-item .g-ph .ph-badge { background: #111f33; color: #8abcf5; }
+
 /* ── Cards: depth shadow + gradient border ── */
 .card, .why-item, .step, .team-card, .faq-item {
   box-shadow: 0 1px 3px rgba(13,40,80,.04), 0 14px 34px -12px rgba(13,40,80,.12);

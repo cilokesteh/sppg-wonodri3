@@ -153,9 +153,9 @@ function WhyUs() {
 function HomeGallery() {
   const { dict } = useI18n();
   const items = [
-    { src: "/assets/gallery-2.jpg", cap: "pf.gal2" },
-    { src: "/assets/gallery-4.jpg", cap: "pf.gal4" },
-    { src: "/assets/gallery-5.jpg", cap: "pf.gal5" },
+    { icon: "leaf", cap: "pf.gal2" },
+    { icon: "truck", cap: "pf.gal4" },
+    { icon: "user", cap: "pf.gal5" },
   ];
   return (
     <section className="section">
@@ -163,7 +163,10 @@ function HomeGallery() {
         <RevealGrid className="home-gallery" dir="alternate">
           {items.map((item, i) => (
             <div className="g-item" key={i}>
-              <img src={item.src} alt={t(item.cap, dict)} width={480} height={360} loading="lazy" />
+              <div className="g-ph">
+                <span className="ic">{ICONS[item.icon]}</span>
+                <span className="ph-badge">{t("pf.pending", dict)}</span>
+              </div>
               <span className="g-cap" aria-hidden="true">{t(item.cap, dict)}</span>
             </div>
           ))}

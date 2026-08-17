@@ -195,6 +195,7 @@ export const idDict = {
   "pf.gal4": "Distribusi ke Sekolah",
   "pf.gal5": "Penerima Manfaat",
   "pf.gal6": "Tim SPPG",
+  "pf.pending": "Foto menyusul",
 };
 
 export const enDict = {
@@ -394,6 +395,7 @@ export const enDict = {
   "pf.gal4": "School Distribution",
   "pf.gal5": "Beneficiaries",
   "pf.gal6": "SPPG Team",
+  "pf.pending": "Photos coming soon",
 };
 
 export type Dict = typeof idDict;

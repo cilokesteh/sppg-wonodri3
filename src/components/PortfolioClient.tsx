@@ -11,13 +11,15 @@ export default function PortfolioClient() {
     { icon: "truck", kt: "pf.c2t", kd: "pf.c2d" },
     { icon: "chart", kt: "pf.c3t", kd: "pf.c3d" },
   ];
+  // Galeri default (placeholder) — foto asli menyusul dari client.
+  // Saat foto sudah ada: isi `icon: null, src: "/assets/gallery-N.jpg"`.
   const gallery = [
-    { src: "/assets/gallery-1.jpg", cap: "pf.gal1" },
-    { src: "/assets/gallery-2.jpg", cap: "pf.gal2" },
-    { src: "/assets/gallery-3.jpg", cap: "pf.gal3" },
-    { src: "/assets/gallery-4.jpg", cap: "pf.gal4" },
-    { src: "/assets/gallery-5.jpg", cap: "pf.gal5" },
-    { src: "/assets/gallery-6.jpg", cap: "pf.gal6" },
+    { icon: "meal", cap: "pf.gal1" },
+    { icon: "leaf", cap: "pf.gal2" },
+    { icon: "check", cap: "pf.gal3" },
+    { icon: "truck", cap: "pf.gal4" },
+    { icon: "user", cap: "pf.gal5" },
+    { icon: "user", cap: "pf.gal6" },
   ];
   return (
     <>
@@ -47,7 +49,14 @@ export default function PortfolioClient() {
           <RevealGrid className="gallery" dir="alternate">
             {gallery.map((g, i) => (
               <div className="g-item" key={i}>
-                <img src={g.src} alt={t(g.cap, dict)} width={480} height={360} loading="lazy" />
+                {g.icon ? (
+                  <div className="g-ph">
+                    <span className="ic">{ICONS[g.icon]}</span>
+                    <span className="ph-badge">{t("pf.pending", dict)}</span>
+                  </div>
+                ) : (
+                  <img src={(g as unknown as { src: string }).src} alt={t(g.cap, dict)} width={480} height={360} loading="lazy" />
+                )}
                 <span className="g-cap" aria-hidden="true">{t(g.cap, dict)}</span>
               </div>
             ))}
