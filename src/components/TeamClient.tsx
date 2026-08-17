@@ -30,7 +30,7 @@ export default function TeamClient() {
     { role: "team.aslap", name: "Hakim" },
   ];
   const ops = [
-    { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp", rating: "92" },
+    { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp", photoNames: ["Feni", "Ika", "Rina", "Dewi", "Almira"] },
     { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"] },
     { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"] },
     { k: "team.packing", members: ["Muhlisin"] },
@@ -111,26 +111,22 @@ export default function TeamClient() {
             {ops.map((o, i) => (
               <TiltCard className={`team-card team-card-multi ${o.photo ? "team-photo-card" : ""}`} key={i}>
                 {o.photo ? (
-                  <>
-                    <div className="team-photo-media">
-                      <picture>
-                        <source srcSet={o.photoWebp} type="image/webp" />
-                        <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
-                      </picture>
-                      <div className="team-photo-cap">
-                        <b>{t(o.k, dict)}</b>
-                        <span>SPPG · WONODRI 3</span>
-                      </div>
+                  <div className="team-photo-media">
+                    <picture>
+                      <source srcSet={o.photoWebp} type="image/webp" />
+                      <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
+                    </picture>
+                    <div className="team-photo-cap">
+                      <b>{t(o.k, dict)}</b>
+                      {o.photoNames && (
+                        <span className="team-photo-names">
+                          {o.photoNames.map((n, ni) => (
+                            <i key={ni}>{n}</i>
+                          ))}
+                        </span>
+                      )}
                     </div>
-                    <div className="team-photo-body">
-                      <ul className="team-members">
-                        {o.members.map((m) => (
-                          <li key={m}>{m}</li>
-                        ))}
-                      </ul>
-                      <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>
-                    </div>
-                  </>
+                  </div>
                 ) : (
                   <Avatar icon={o.stack ? "stack" : "user"} />
                 )}

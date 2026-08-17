@@ -1391,3 +1391,50 @@ section[id] { scroll-margin-top: 96px; }
   .team-photo-cap { left: 12px; right: 12px; bottom: 10px; }
   .team-photo-cap b { font-size: .95rem; }
 }
+
+/* ── Team photo card — names INSIDE photo (rev 8: user minta nama di
+   dalam foto, urut dari kiri, tanpa footer) ── */
+.team-photo-card { padding: 0 !important; overflow: hidden !important; }
+.team-photo-media {
+  position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden;
+  background: #e8eef6;
+}
+.team-photo-media picture, .team-photo-media img {
+  display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 28%;
+}
+.team-photo-media::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(11,20,36,0) 34%, rgba(11,20,36,.5) 68%, rgba(11,20,36,.88) 100%);
+}
+.team-photo-cap {
+  position: absolute; left: 14px; right: 14px; bottom: 12px; z-index: 2;
+  display: flex; flex-direction: column; gap: 5px; text-align: left;
+}
+.team-photo-cap b {
+  color: #fff; font-size: .95rem; font-weight: 800; letter-spacing: .01em;
+  text-shadow: 0 1px 8px rgba(0,0,0,.45);
+}
+.team-photo-names {
+  display: flex; flex-wrap: wrap; gap: 3px 10px; align-items: baseline;
+}
+.team-photo-names i {
+  font-style: normal; color: rgba(255,255,255,.94); font-size: .74rem;
+  font-weight: 600; letter-spacing: .02em;
+  text-shadow: 0 1px 6px rgba(0,0,0,.55);
+}
+.team-photo-names i + i::before {
+  content: "·"; margin-right: 10px; color: rgba(255,255,255,.55);
+}
+@media (max-width: 600px) {
+  .team-photo-media { aspect-ratio: 4/3; }
+  .team-photo-cap { left: 10px; right: 10px; bottom: 9px; gap: 3px; }
+  .team-photo-cap b { font-size: .82rem; }
+  .team-photo-names i { font-size: .66rem; }
+  .team-photo-names { gap: 2px 7px; }
+  .team-photo-names i + i::before { margin-right: 7px; }
+}
+
+/* ── Team photo card — fill full card height (rev 8b: hilangkan area
+   putih bawah foto; foto stretch isi kartu, object-fit cover) ── */
+.team-photo-card { display: flex; flex-direction: column; }
+.team-photo-media { flex: 1; aspect-ratio: auto; min-height: 0; }
