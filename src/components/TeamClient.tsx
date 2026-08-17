@@ -107,44 +107,51 @@ export default function TeamClient() {
       <section className="section team-section section-alt">
         <div className="container">
           <SectionHead kicker={t("team.ops.kicker", dict)} title={t("team.ops.title", dict)} desc={t("team.ops.desc", dict)} />
-          <RevealGrid className="team-grid" dir="alternate">
-            {ops.map((o, i) => (
-              <TiltCard className={`team-card team-card-multi ${o.photo ? "team-photo-card" : ""}`} key={i}>
-                {o.photo ? (
-                  <>
-                    <div className="team-photo-media">
-                      <picture>
-                        <source srcSet={o.photoWebp} type="image/webp" />
-                        <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
-                      </picture>
-                      <div className="team-photo-cap">
-                        <b>{t(o.k, dict)}</b>
-                        {o.photoNames && (
-                          <span className="team-photo-names">
-                            {o.photoNames.map((n, ni) => (
-                              <i key={ni}>{n}</i>
-                            ))}
-                          </span>
-                        )}
-                      </div>
+          {(() => {
+            const o = ops.find((x) => x.photo);
+            if (!o) return null;
+            return (
+              <Reveal className="ops-photo-wide" dir="up">
+                <TiltCard className="team-card team-photo-wide-card">
+                  <div className="team-photo-media">
+                    <picture>
+                      <source srcSet={o.photoWebp} type="image/webp" />
+                      <img src={o.photo} alt={t(o.k, dict)} width={1200} height={903} loading="lazy" />
+                    </picture>
+                    <div className="team-photo-cap">
+                      <b>{t(o.k, dict)}</b>
+                      {o.photoNames && (
+                        <span className="team-photo-names">
+                          {o.photoNames.map((n, ni) => (
+                            <i key={ni}>{n}</i>
+                          ))}
+                        </span>
+                      )}
                     </div>
-                  </>
-                ) : (
+                  </div>
+                </TiltCard>
+              </Reveal>
+            );
+          })()}
+          <RevealGrid className="team-grid" dir="alternate">
+            {ops
+              .filter((o) => !o.photo)
+              .map((o, i) => (
+                <TiltCard className="team-card team-card-multi" key={i}>
                   <Avatar icon={o.stack ? "stack" : "user"} />
-                )}
-                {!o.photo && <h3>{t(o.k, dict)}</h3>}
-                {!o.photo && o.members.length ? (
-                  <ul className={`team-members ${o.members.length >= 6 ? "two-col" : ""} ${o.members.length === 1 ? "single" : ""}`}>
-                    {o.members.map((m) => (
-                      <li key={m}>{m}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  !o.photo && <p className="team-name" style={{ margin: "6px 0" }}>{t("team.placeholder", dict)}</p>
-                )}
-                {!o.photo && <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>}
-              </TiltCard>
-            ))}
+                  <h3>{t(o.k, dict)}</h3>
+                  {o.members.length ? (
+                    <ul className={`team-members ${o.members.length >= 6 ? "two-col" : ""} ${o.members.length === 1 ? "single" : ""}`}>
+                      {o.members.map((m) => (
+                        <li key={m}>{m}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="team-name" style={{ margin: "6px 0" }}>{t("team.placeholder", dict)}</p>
+                  )}
+                  <p className="team-count">{Math.max(o.members.length, 1)} {t("team.ops.members", dict)}</p>
+                </TiltCard>
+              ))}
           </RevealGrid>
         </div>
       </section>
