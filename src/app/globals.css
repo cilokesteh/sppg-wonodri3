@@ -1665,3 +1665,15 @@ section[id] { scroll-margin-top: 96px; }
 @media (max-width: 600px) {
   .team-photo-solo-card { max-width: 280px; }
 }
+
+/* ── Team photo SOLO card rev2: half-body 540×1038 (1:1.92) ── */
+.team-photo-solo-card { max-width: 380px; }
+.team-photo-solo-card .team-photo-media {
+  aspect-ratio: 540 / 1038 !important; height: auto !important;
+}
+.team-photo-solo-card .team-photo-media img {
+  object-position: center 24% !important;
+}
+@media (max-width: 600px) {
+  .team-photo-solo-card { max-width: 320px; }
+}

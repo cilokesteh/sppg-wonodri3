@@ -124,7 +124,7 @@ export default function TeamClient() {
                       <div className="team-photo-media">
                         <picture>
                           <source srcSet={o.photoWebp} type="image/webp" />
-                          <img src={o.photo} alt={t(o.k, dict)} width={1200} height={o.portrait ? 1726 : 903} loading="lazy" />
+                          <img src={o.photo} alt={t(o.k, dict)} width={o.solo ? 540 : (o.portrait ? 1200 : 1200)} height={o.solo ? 1038 : (o.portrait ? 1726 : 903)} loading="lazy" />
                         </picture>
                         <div className="team-photo-cap">
                           <b>{t(o.k, dict)}</b>
