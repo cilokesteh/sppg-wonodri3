@@ -1203,3 +1203,43 @@ section[id] { scroll-margin-top: 96px; }
   background: linear-gradient(120deg, #8a6d14, #a8851a);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
+
+
+/* ── Feedback form (Kritik & Saran) ── */
+.fb-form { margin-top: 44px; }
+.fb-form .section-head { margin-bottom: 26px; }
+.fb-form-card {
+  max-width: 640px; margin: 0 auto;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 30px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.dark .fb-form-card { background: #0f1a2c; border-color: #1c2b42; }
+.fb-row { display: flex; flex-direction: column; gap: 7px; }
+.fb-row label { font-size: .85rem; font-weight: 700; color: var(--navy); }
+.dark .fb-row label { color: #eaf1fb; }
+.fb-row input, .fb-row textarea {
+  font: inherit; font-size: .95rem; color: var(--ink-soft);
+  background: #f7fafd; border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px; outline: none; transition: border-color .25s, box-shadow .25s, background .25s;
+}
+.dark .fb-row input, .dark .fb-row textarea { background: #111f33; border-color: #1c2b42; color: #b9c7da; }
+.fb-row input::placeholder, .fb-row textarea::placeholder { color: #9fb0c8; }
+.fb-row input:focus, .fb-row textarea:focus {
+  border-color: var(--sky-400); box-shadow: 0 0 0 3px rgba(95,168,240,.15); background: #fff;
+}
+.dark .fb-row input:focus, .dark .fb-row textarea:focus { background: #16263d; }
+.fb-form-card .btn { align-self: flex-start; }
+.fb-note { font-size: .78rem; color: var(--muted); }
+@media (max-width: 600px) {
+  .fb-form-card { padding: 22px; }
+  .fb-form-card .btn { align-self: stretch; text-align: center; }
+}
+
+.fb-ok, .fb-err {
+  font-size: .85rem; font-weight: 600; padding: 10px 14px; border-radius: 10px;
+}
+.fb-ok { color: #0f6b3a; background: #e6f6ec; border: 1px solid #b8e3c8; }
+.fb-err { color: #9c2f2f; background: #fdeaea; border: 1px solid #f3c1c1; }
+.dark .fb-ok { color: #7ee2a5; background: #0f2a1c; border-color: #1c4a30; }
+.dark .fb-err { color: #ff9a9a; background: #2a1212; border-color: #4a1c1c; }

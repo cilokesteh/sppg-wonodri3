@@ -149,8 +149,97 @@ export function ContactSection() {
             />
           </Reveal>
         </div>
+
+        <FeedbackForm />
       </div>
     </section>
+  );
+}
+
+export function FeedbackForm() {
+  const { dict } = useI18n();
+  const [name, setName] = useState("");
+  const [inst, setInst] = useState("");
+  const [msg, setMsg] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "err">("idle");
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/halo@sppgwonodri3.web.id", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: t("contact.fbSubject", dict),
+          _template: "table",
+          _captcha: "false",
+          [t("contact.fbName", dict)]: name,
+          [t("contact.fbInst", dict)]: inst,
+          [t("contact.fbMsg", dict)]: msg,
+        }),
+      });
+      const data = await res.json();
+      if (data.success === "true" || res.ok) {
+        setStatus("ok");
+        setName(""); setInst(""); setMsg("");
+      } else {
+        setStatus("err");
+      }
+    } catch {
+      setStatus("err");
+    }
+  };
+
+  return (
+    <Reveal className="fb-form" dir="up">
+      <div className="section-head center">
+        <span className="kicker">{t("contact.fbKicker", dict)}</span>
+        <h2 className="grad-title">{t("contact.fbTitle", dict)}</h2>
+        <p>{t("contact.fbDesc", dict)}</p>
+      </div>
+      <form onSubmit={onSubmit} className="fb-form-card">
+        <div className="fb-row">
+          <label htmlFor="fb-name">{t("contact.fbName", dict)}</label>
+          <input
+            id="fb-name"
+            type="text"
+            required
+            placeholder={t("contact.fbNamePh", dict)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="fb-row">
+          <label htmlFor="fb-inst">{t("contact.fbInst", dict)}</label>
+          <input
+            id="fb-inst"
+            type="text"
+            required
+            placeholder={t("contact.fbInstPh", dict)}
+            value={inst}
+            onChange={(e) => setInst(e.target.value)}
+          />
+        </div>
+        <div className="fb-row">
+          <label htmlFor="fb-msg">{t("contact.fbMsg", dict)}</label>
+          <textarea
+            id="fb-msg"
+            required
+            rows={5}
+            placeholder={t("contact.fbMsgPh", dict)}
+            value={msg}
+            onChange={(e) => setMsg(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary" disabled={status === "sending"}>
+          {status === "sending" ? t("contact.fbSending", dict) : t("contact.fbSubmit", dict)}
+        </button>
+        {status === "ok" && <p className="fb-ok">{t("contact.fbOk", dict)}</p>}
+        {status === "err" && <p className="fb-err">{t("contact.fbErr", dict)}</p>}
+        <p className="fb-note">{t("contact.fbNote", dict)}</p>
+      </form>
+    </Reveal>
   );
 }
 
