@@ -2,7 +2,7 @@
 
 import { useI18n, t } from "./I18nProvider";
 import { SectionHead, ICONS, CtaBand } from "./ui";
-import { Reveal, RevealGrid } from "./motion";
+import { RevealGrid } from "./motion";
 
 export default function PortfolioClient() {
   const { dict } = useI18n();

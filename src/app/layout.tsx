@@ -1,13 +1,26 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { Lexend, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/components/I18nProvider";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WaFloat, BackTop } from "@/components/ui";
 
+const lexend = Lexend({
+  subsets: ["latin"],
+  variable: "--font-lexend",
+  display: "swap",
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-source",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sppg-wonodri3.pages.dev"),
+  metadataBase: new URL("https://sppgwonodri3.web.id"),
   title: {
     default: "SPPG Wonodri 3 — Dapur MBG Kota Semarang",
     template: "%s — SPPG Wonodri 3",
@@ -22,7 +35,7 @@ export const metadata: Metadata = {
     title: "SPPG Wonodri 3 — Dapur MBG Kota Semarang",
     description:
       "Satuan Pelayanan Pemenuhan Gizi (SPPG) Wonodri 3 — mendukung program Makan Bergizi Gratis (MBG) dengan makanan bergizi berkualitas di Kota Semarang.",
-    url: "https://sppg-wonodri3.pages.dev/",
+    url: "https://sppgwonodri3.web.id/",
     siteName: "SPPG Wonodri 3",
     images: [{ url: "/og/og-image.jpg", width: 1200, height: 630, alt: "SPPG Wonodri 3" }],
   },
@@ -46,12 +59,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <Script id="theme-init" strategy="beforeInteractive">
           {`
             (function () {
@@ -67,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body>
+      <body className={`${lexend.variable} ${sourceSans.variable}`}>
         <I18nProvider>
           <Navbar />
           <main>{children}</main>

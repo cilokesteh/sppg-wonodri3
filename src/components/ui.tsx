@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import { useI18n, t } from "./I18nProvider";
 import { Reveal } from "./motion";
 
@@ -103,7 +104,7 @@ export function CtaBand() {
         <Reveal className="cta-band" dir="up">
           <h2>{t("cta.title", dict)}</h2>
           <p>{t("cta.desc", dict)}</p>
-          <a href="#contact" className="btn btn-white">{t("cta.btn", dict)}</a>
+          <Link href="/#contact" className="btn btn-white">{t("cta.btn", dict)}</Link>
         </Reveal>
       </div>
     </section>
@@ -143,7 +144,7 @@ export function ContactSection() {
             <iframe
               title="Lokasi SPPG Wonodri 3"
               src="https://www.google.com/maps?q=Jl.+Erlangga+Raya+No+38,+Pleburan,+Semarang+Selatan,+Semarang&output=embed"
-              loading="eager"
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
           </Reveal>
@@ -172,9 +173,18 @@ export function WaFloat() {
 }
 
 export function BackTop() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 480);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <button
-      className="back-top"
+      className={`back-top ${show ? "show" : ""}`}
       aria-label="Kembali ke atas"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >

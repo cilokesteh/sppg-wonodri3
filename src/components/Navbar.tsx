@@ -20,6 +20,7 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       className={`theme-toggle ${className}`}
       aria-label="Ganti tema terang/gelap"
+      aria-pressed={theme === "dark"}
       title="Ganti tema"
       onClick={toggleTheme}
     >
@@ -37,11 +38,11 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
 function LangSwitcher({ onSelect }: { onSelect?: () => void }) {
   const { lang, setLang } = useI18n();
   return (
-    <div className="lang-switch">
-      <button data-lang="id" className={lang === "id" ? "active" : ""} onClick={() => { setLang("id"); onSelect?.(); }}>
+    <div className="lang-switch" role="group" aria-label="Pilih bahasa">
+      <button data-lang="id" className={lang === "id" ? "active" : ""} aria-pressed={lang === "id"} onClick={() => { setLang("id"); onSelect?.(); }}>
         ID
       </button>
-      <button data-lang="en" className={lang === "en" ? "active" : ""} onClick={() => { setLang("en"); onSelect?.(); }}>
+      <button data-lang="en" className={lang === "en" ? "active" : ""} aria-pressed={lang === "en"} onClick={() => { setLang("en"); onSelect?.(); }}>
         EN
       </button>
     </div>
@@ -65,6 +66,37 @@ export function Navbar() {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  // Escape closes drawer + focus management
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    // focus first link in drawer
+    const first = document.querySelector<HTMLElement>(".drawer-panel a");
+    first?.focus();
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  // focus trap: keep Tab inside drawer while open
+  const onDrawerKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key !== "Tab") return;
+    const panel = e.currentTarget.querySelector<HTMLElement>(".drawer-panel");
+    if (!panel) return;
+    const focusables = panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/" || pathname === "/index.html";
@@ -93,9 +125,9 @@ export function Navbar() {
             ))}
             <ThemeToggle />
             <LangSwitcher />
-            <a href="#contact" className="btn btn-primary nav-cta">
+            <Link href="/#contact" className="btn btn-primary nav-cta">
               {t("nav.cta", dict)}
-            </a>
+            </Link>
           </nav>
 
           <button
@@ -109,7 +141,14 @@ export function Navbar() {
       </header>
 
       {/* Mobile drawer */}
-      <div className={`drawer ${open ? "open" : ""}`} onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
+      <div
+        className={`drawer ${open ? "open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu navigasi"
+        onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
+        onKeyDown={onDrawerKeyDown}
+      >
         <div className="drawer-panel">
           {NAV_KEYS.map((item) => (
             <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>

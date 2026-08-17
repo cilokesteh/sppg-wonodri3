@@ -41,7 +41,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
-  font-family: "Lexend", "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-lexend), var(--font-source), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--ink);
   background: var(--white);
   line-height: 1.7;
