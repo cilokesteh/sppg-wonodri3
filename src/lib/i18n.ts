@@ -15,6 +15,7 @@ export const idDict = {
   "hero.cta1": "Lihat Layanan",
   "hero.cta2": "Tentang Kami",
   "trust.1": "Porsi Bergizi",
+  "trust.1v": "1.577",
   "trust.2": "Sekolah & Posyandu",
   "trust.3": "Standar Gizi",
   "hero.float.t": "Gizi Seimbang",
@@ -31,6 +32,7 @@ export const idDict = {
   "stat.desc": "SPPG Wonodri 3 adalah bagian dari program nasional MBG yang menjamin anak-anak Indonesia mendapat asupan bergizi setiap hari sekolah.",
   "stat.1": "Layanan SPPG",
   "stat.2": "Penerima Manfaat TK, SD & Posyandu",
+  "stat.2v": "1.577",
   "stat.3": "Standar BGN",
   "stat.4": "Dapur Higienis",
 
@@ -220,6 +222,7 @@ export const enDict = {
   "hero.cta1": "Our Services",
   "hero.cta2": "About Us",
   "trust.1": "Nutritious Meals",
+  "trust.1v": "1,577",
   "trust.2": "Schools & Posyandu",
   "trust.3": "Nutrition Standards",
   "hero.float.t": "Balanced Nutrition",
@@ -236,6 +239,7 @@ export const enDict = {
   "stat.desc": "SPPG Wonodri 3 is part of the national MBG program ensuring Indonesian children receive nutritious meals every school day.",
   "stat.1": "SPPG Service",
   "stat.2": "TK, SD & Posyandu Beneficiaries",
+  "stat.2v": "1,577",
   "stat.3": "BGN Standards",
   "stat.4": "Hygienic Kitchen",
 

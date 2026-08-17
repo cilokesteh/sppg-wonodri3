@@ -643,7 +643,7 @@ body { background: linear-gradient(180deg, #fff 0%, #f7fbff 45%, #fff 100%); }
 }
 .hero-grid { position: relative; z-index: 1; }
 .hero h1 .grad {
-  background: linear-gradient(120deg, var(--logo-navy) 0%, var(--gold) 40%, var(--logo-ring) 70%, var(--gold) 100%);
+  background: linear-gradient(120deg, var(--logo-navy) 0%, var(--gold) 40%, #2f6fc4 70%, var(--gold) 100%);
   background-size: 260% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: gradShift 7s linear infinite;
@@ -1196,4 +1196,10 @@ section[id] { scroll-margin-top: 96px; }
 }
 .dark .blog-card:hover {
   box-shadow: 0 26px 60px -14px rgba(14,42,84,.75), 0 0 0 1px rgba(95,168,240,.15);
+}
+
+/* ── Stats strip: gold lebih pekat (a11y contrast ≥3:1 di bg putih) ── */
+.stats-strip .st b {
+  background: linear-gradient(120deg, #8a6d14, #a8851a);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
