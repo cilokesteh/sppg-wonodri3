@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n, t } from "./I18nProvider";
-import { SectionHead, ICONS, CtaBand } from "./ui";
+import { SectionHead, ICONS } from "./ui";
 import { Reveal, RevealGrid } from "./motion";
 
 export default function ServiceClient() {
@@ -54,7 +54,6 @@ export default function ServiceClient() {
           </RevealGrid>
         </div>
       </section>
-      <CtaBand />
     </>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { useI18n, t } from "./I18nProvider";
 import { Reveal } from "./motion";
 
@@ -91,21 +90,6 @@ export function FaqSection() {
             </Reveal>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-export function CtaBand() {
-  const { dict } = useI18n();
-  return (
-    <section className="section section-tight">
-      <div className="container">
-        <Reveal className="cta-band" dir="up">
-          <h2>{t("cta.title", dict)}</h2>
-          <p>{t("cta.desc", dict)}</p>
-          <Link href="/#contact" className="btn btn-white">{t("cta.btn", dict)}</Link>
-        </Reveal>
       </div>
     </section>
   );

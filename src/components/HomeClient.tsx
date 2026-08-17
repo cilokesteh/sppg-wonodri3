@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useI18n, t } from "./I18nProvider";
-import { SectionHead, ICONS, FaqSection, CtaBand, ContactSection } from "./ui";
+import { SectionHead, ICONS, FaqSection, ContactSection } from "./ui";
 import { Reveal, RevealGrid } from "./motion";
 import { TiltCard } from "./TiltCard";
 
@@ -193,7 +193,6 @@ export default function HomeClient() {
       <WhyUs />
       <HomeGallery />
       <FaqSection />
-      <CtaBand />
       <ContactSection />
     </>
   );

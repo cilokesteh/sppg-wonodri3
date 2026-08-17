@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n, t } from "./I18nProvider";
-import { SectionHead, CtaBand } from "./ui";
+import { SectionHead } from "./ui";
 import { Reveal, RevealGrid } from "./motion";
 import { TiltCard } from "./TiltCard";
 
@@ -127,7 +127,6 @@ export default function TeamClient() {
           </RevealGrid>
         </div>
       </section>
-      <CtaBand />
     </>
   );
 }

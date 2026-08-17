@@ -1,7 +1,7 @@
 "use client";
 
 import { useI18n, t } from "./I18nProvider";
-import { SectionHead, ICONS, CtaBand } from "./ui";
+import { SectionHead, ICONS } from "./ui";
 import { Reveal, RevealGrid } from "./motion";
 import { TiltCard } from "./TiltCard";
 
@@ -64,7 +64,6 @@ export default function PortfolioClient() {
           </RevealGrid>
         </div>
       </section>
-      <CtaBand />
     </>
   );
 }

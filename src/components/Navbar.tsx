@@ -126,9 +126,6 @@ export function Navbar() {
             ))}
             <ThemeToggle />
             <LangSwitcher />
-            <Link href="/#contact" className="btn btn-primary nav-cta">
-              {t("nav.cta", dict)}
-            </Link>
           </nav>
 
           <button
