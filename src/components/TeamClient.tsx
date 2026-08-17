@@ -33,7 +33,7 @@ export default function TeamClient() {
     { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"] },
     { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"] },
     { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"] },
-    { k: "team.packing", members: ["Sin"] },
+    { k: "team.packing", members: ["Muhlisin"] },
     { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"] },
     { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
     { k: "team.keamanan", members: ["Andrie", "Bambang"], stack: true },
@@ -113,7 +113,7 @@ export default function TeamClient() {
                 <Avatar icon={o.stack ? "stack" : "user"} />
                 <h3>{t(o.k, dict)}</h3>
                 {o.members.length ? (
-                  <ul className={`team-members ${o.members.length >= 6 ? "two-col" : ""}`}>
+                  <ul className={`team-members ${o.members.length >= 6 ? "two-col" : ""} ${o.members.length === 1 ? "single" : ""}`}>
                     {o.members.map((m) => (
                       <li key={m}>{m}</li>
                     ))}

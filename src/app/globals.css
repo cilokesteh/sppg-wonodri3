@@ -384,6 +384,8 @@ p { color: var(--ink-soft); }
 .team-members li:last-child { border-bottom: none; }
 .team-members.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 10px; }
 .team-members.two-col li { border-bottom: none; }
+.team-members.single { display: flex; justify-content: center; }
+.team-members.single li { width: auto; text-align: center; font-weight: 600; border-bottom: none; }
 .team-card .team-count {
   font-size: .78rem; font-weight: 700; color: var(--sky-600);
   margin-top: auto; padding-top: 6px;
