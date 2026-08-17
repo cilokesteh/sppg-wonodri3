@@ -13,10 +13,10 @@ export default function ServiceClient() {
     { icon: "check", kt: "sv.step4t", kd: "sv.step4d" },
   ];
   const extras = [
-    { kt: "sv.extra.1t", kd: "sv.extra.1d" },
-    { kt: "sv.extra.2t", kd: "sv.extra.2d" },
-    { kt: "sv.extra.3t", kd: "sv.extra.3d" },
-    { kt: "sv.extra.4t", kd: "sv.extra.4d" },
+    { icon: "leaf", kt: "sv.extra.1t", kd: "sv.extra.1d" },
+    { icon: "shield", kt: "sv.extra.2t", kd: "sv.extra.2d" },
+    { icon: "chart", kt: "sv.extra.3t", kd: "sv.extra.3d" },
+    { icon: "user", kt: "sv.extra.4t", kd: "sv.extra.4d" },
   ];
   return (
     <>
@@ -46,7 +46,7 @@ export default function ServiceClient() {
           <RevealGrid className="grid-4" dir="alternate">
             {extras.map((v, i) => (
               <div className="card value-item" key={i}>
-                <div className="ic">{ICONS.shield}</div>
+                <div className="ic">{ICONS[v.icon]}</div>
                 <h3>{t(v.kt, dict)}</h3>
                 <p>{t(v.kd, dict)}</p>
               </div>

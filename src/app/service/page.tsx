@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Layanan",
   description:
     "Layanan SPPG Wonodri 3 — rantai pemenuhan gizi dari perencanaan menu, pengadaan bahan, pengolahan, hingga distribusi dengan standar mutu ketat.",
-  alternates: { canonical: "https://sppg-wonodri3.pages.dev/service/" },
+  alternates: { canonical: "https://sppgwonodri3.web.id/service/" },
 };
 
 export default function ServicePage() {

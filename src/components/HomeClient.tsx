@@ -164,7 +164,7 @@ function HomeGallery() {
           {items.map((item, i) => (
             <div className="g-item" key={i}>
               <img src={item.src} alt={t(item.cap, dict)} width={480} height={360} loading="lazy" />
-              <span className="g-cap">{t(item.cap, dict)}</span>
+              <span className="g-cap" aria-hidden="true">{t(item.cap, dict)}</span>
             </div>
           ))}
         </RevealGrid>

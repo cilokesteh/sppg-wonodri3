@@ -48,7 +48,7 @@ export default function PortfolioClient() {
             {gallery.map((g, i) => (
               <div className="g-item" key={i}>
                 <img src={g.src} alt={t(g.cap, dict)} width={480} height={360} loading="lazy" />
-                <span className="g-cap">{t(g.cap, dict)}</span>
+                <span className="g-cap" aria-hidden="true">{t(g.cap, dict)}</span>
               </div>
             ))}
           </RevealGrid>
