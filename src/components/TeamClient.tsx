@@ -34,7 +34,7 @@ export default function TeamClient() {
     { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"], photo: "/assets/team-pengolahan.jpg", photoWebp: "/assets/team-pengolahan.webp", photoNames: ["Ira", "Rini", "Ari", "Ayu", "Rasyid"] },
     { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"], photo: "/assets/team-pemorsian.jpg", photoWebp: "/assets/team-pemorsian.webp", photoNames: ["Robi", "Agfanti", "Erna", "Marina", "Alis", "Dessy", "Ratna", "Herna"], portrait: true },
     { k: "team.packing", members: ["Muhlisin"], photo: "/assets/staff-packing.jpg", photoWebp: "/assets/staff-packing.webp", photoNames: ["Muhlisin"], solo: true },
-    { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"] },
+    { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"], photo: "/assets/team-distribusi.jpg", photoWebp: "/assets/team-distribusi.webp", photoNames: ["Saebani", "Tamhid", "Harwiyono", "Rochmat"] },
     { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
     { k: "team.keamanan", members: ["Andrie", "Bambang"], stack: true },
     { k: "team.kebersihan", members: ["Sutiman"] },
