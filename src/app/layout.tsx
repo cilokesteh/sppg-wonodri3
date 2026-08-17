@@ -74,6 +74,54 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             })();
           `}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "SPPG Wonodri 3",
+                url: "https://sppgwonodri3.web.id/",
+                logo: "https://sppgwonodri3.web.id/assets/logo.png",
+                description:
+                  "Satuan Pelayanan Pemenuhan Gizi (SPPG) Wonodri 3 — mendukung program Makan Bergizi Gratis (MBG) untuk anak Indonesia di Kota Semarang.",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Jl. Erlangga Raya No 38, Kel. Pleburan, Kec. Semarang Selatan",
+                  addressLocality: "Semarang",
+                  addressRegion: "Jawa Tengah",
+                  postalCode: "50241",
+                  addressCountry: "ID",
+                },
+                geo: { "@type": "GeoCoordinates", latitude: -6.993, longitude: 110.42 },
+                openingHours: "Mo-Sa 06:00-16:00",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "GovernmentService",
+                name: "SPPG Wonodri 3 — Satuan Pelayanan Pemenuhan Gizi",
+                serviceType: "Penyediaan Makan Bergizi Gratis (MBG)",
+                provider: { "@type": "Organization", name: "SPPG Wonodri 3", url: "https://sppgwonodri3.web.id/" },
+                areaServed: { "@type": "City", name: "Kota Semarang" },
+                availableChannel: {
+                  "@type": "ServiceChannel",
+                  serviceLocation: {
+                    "@type": "Place",
+                    name: "Dapur SPPG Wonodri 3",
+                    address: {
+                      "@type": "PostalAddress",
+                      streetAddress: "Jl. Erlangga Raya No 38, Kel. Pleburan, Kec. Semarang Selatan",
+                      addressLocality: "Semarang",
+                      addressRegion: "Jawa Tengah",
+                      addressCountry: "ID",
+                    },
+                  },
+                },
+              },
+            ]),
+          }}
+        />
       </head>
       <body className={`${lexend.variable} ${sourceSans.variable}`}>
         <I18nProvider>

@@ -168,7 +168,7 @@ p { color: var(--ink-soft); }
 .hero::before {
   content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .06; z-index: 0;
   background-image: url("/assets/logo.png");
-  background-repeat: no-repeat; background-position: 86% 14%; background-size: 400px auto;
+  background-repeat: no-repeat; background-position: 86% 14%; background-size: min(400px, 30vw);
 }
 .hero-grid { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 72px; align-items: center; }
 .hero h1 { color: var(--navy); margin-bottom: 24px; }
@@ -276,7 +276,7 @@ p { color: var(--ink-soft); }
 .cta-band::after {
   content: ""; position: absolute; inset: 0;
   background-image: url("/assets/logo.png"), radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
-  background-size: 200px auto, 26px 26px;
+  background-size: min(200px, 32vw) auto, 26px 26px;
   background-position: 96% 88%, 0 0;
   background-repeat: no-repeat, repeat;
   opacity: .38;
@@ -765,7 +765,7 @@ body { background: linear-gradient(180deg, #fff 0%, #f7fbff 45%, #fff 100%); }
 }
 .section-alt::after {
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .045;
-  background: url("/assets/logo.png") no-repeat 92% 55% / 320px auto;
+  background: url("/assets/logo.png") no-repeat 92% 55% / min(320px, 44vw) auto;
 }
 .section-alt > .container { position: relative; z-index: 1; }
 .section-alt::before {
