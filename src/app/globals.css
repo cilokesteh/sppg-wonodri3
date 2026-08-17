@@ -1185,3 +1185,15 @@ section[id] { scroll-margin-top: 96px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* ── Blog cards: CSS-only 3D tilt (Link → TiltCard gak bisa di-wrap) ── */
+.blog-card {
+  transition: transform .4s cubic-bezier(.2,.7,.3,1), box-shadow .35s ease, border-color .25s ease;
+}
+.blog-card:hover {
+  transform: perspective(950px) translateY(-8px) rotateX(2.5deg) rotateY(-1.5deg);
+  box-shadow: 0 26px 60px -14px rgba(23,89,171,.28);
+}
+.dark .blog-card:hover {
+  box-shadow: 0 26px 60px -14px rgba(14,42,84,.75), 0 0 0 1px rgba(95,168,240,.15);
+}
