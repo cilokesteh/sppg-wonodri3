@@ -31,7 +31,7 @@ export default function TeamClient() {
   ];
   const ops = [
     { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp", photoNames: ["Feni", "Ika", "Rina", "Dewi", "Almira"] },
-    { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"] },
+    { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"], photo: "/assets/team-pengolahan.jpg", photoWebp: "/assets/team-pengolahan.webp", photoNames: ["Ira", "Rini", "Ari", "Ayu", "Rasyid"] },
     { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"] },
     { k: "team.packing", members: ["Muhlisin"] },
     { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"] },
