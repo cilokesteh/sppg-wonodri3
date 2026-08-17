@@ -128,10 +128,6 @@ export default function TeamClient() {
                         )}
                       </div>
                     </div>
-                    <div className="team-photo-footer">
-                      <span className="team-photo-footer-lbl">{t("team.ops.members", dict)}</span>
-                      <b className="team-photo-footer-count">{Math.max(o.members.length, 1)}</b>
-                    </div>
                   </>
                 ) : (
                   <Avatar icon={o.stack ? "stack" : "user"} />

@@ -1497,3 +1497,32 @@ section[id] { scroll-margin-top: 96px; }
 .team-photo-footer-lbl { font-size: .72rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
 .team-photo-footer-count { font-size: 1.1rem; font-weight: 900; color: var(--sky-700); }
 .dark .team-photo-footer-count { color: #8abcf5; }
+
+/* ── Team photo card — foto doang (rev 10: user minta hapus footer,
+   'Biar bener2 foto yg di tampilin') ──
+   Foto isi seluruh kartu (flex:1), tetap contain biar 5 orang utuh.
+   Nama tetap overlay di dalam foto. */
+.team-photo-media { flex: 1; aspect-ratio: auto !important; min-height: 0; }
+
+/* ── Team photo card — foto doang, FIX override (rev 10b) ──
+   Rev9 flex:none !important masih menang → tambah !important biar
+   media benar-benar isi seluruh kartu. */
+.team-photo-media { flex: 1 !important; aspect-ratio: auto !important; min-height: 0 !important; }
+.team-photo-media img { object-fit: contain !important; }
+
+/* ── Team photo card — FINAL (rev 11): foto isi kartu penuh, NO blank ──
+   Kartu = landscape 4/3 (cocok aspect asli foto 1200x903 = 1.33) →
+   object-fit cover TIDAK crop samping → 5 orang utuh, foto penuh kartu.
+   Kartu TIDAK di-stretch ke tinggi baris (stretch ke portrait = letterbox
+   atau crop orang). Align top biar rapi di grid. */
+.team-grid > div:has(.team-photo-card) { height: auto !important; align-self: start; }
+.team-grid > div:has(.team-photo-card) > .team-card { height: auto !important; }
+.team-photo-card { padding: 0 !important; overflow: hidden !important; display: flex; flex-direction: column; }
+.team-photo-media {
+  position: relative; width: 100%; aspect-ratio: 4/3 !important; flex: none !important;
+  overflow: hidden; background: #0f1a2c;
+}
+.team-photo-media picture, .team-photo-media img {
+  display: block; width: 100%; height: 100% !important;
+  object-fit: cover !important; object-position: center 35%;
+}
