@@ -1633,3 +1633,21 @@ section[id] { scroll-margin-top: 96px; }
   .lead-cap b { font-size: 1rem; }
   .lead-cap .lead-cap-name { font-size: .82rem; }
 }
+
+/* ── Team photo PORTRAIT card (rev: foto potret, mis. Tim Pemorsian) ──
+   Foto vertikal → jangan full-width landscape (bikin raksasa). Batasi lebar,
+   center, tampilkan utuh dengan aspect 3/4. Nama boleh wrap (8 orang). */
+.team-photo-portrait-card { max-width: 460px; margin: 0 auto; }
+.team-photo-portrait-card .team-photo-media {
+  aspect-ratio: 3 / 4 !important; height: auto !important;
+}
+.team-photo-portrait-card .team-photo-media img {
+  object-position: center 22% !important;
+}
+.team-photo-portrait-card .team-photo-names {
+  flex-wrap: wrap !important; white-space: normal !important;
+}
+@media (max-width: 600px) {
+  .team-photo-portrait-card { max-width: 100%; }
+  .team-photo-portrait-card .team-photo-media { aspect-ratio: 3 / 4 !important; height: auto !important; }
+}

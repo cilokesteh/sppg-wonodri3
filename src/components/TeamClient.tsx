@@ -32,7 +32,7 @@ export default function TeamClient() {
   const ops = [
     { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp", photoNames: ["Feni", "Ika", "Rina", "Dewi", "Almira"] },
     { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"], photo: "/assets/team-pengolahan.jpg", photoWebp: "/assets/team-pengolahan.webp", photoNames: ["Ira", "Rini", "Ari", "Ayu", "Rasyid"] },
-    { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"] },
+    { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"], photo: "/assets/team-pemorsian.jpg", photoWebp: "/assets/team-pemorsian.webp", photoNames: ["Robi", "Agfanti", "Erna", "Marina", "Alis", "Dessy", "Ratna", "Herna"], portrait: true },
     { k: "team.packing", members: ["Muhlisin"] },
     { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"] },
     { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
@@ -62,8 +62,7 @@ export default function TeamClient() {
                 </picture>
                 <div className="team-photo-cap lead-cap">
                   <span className="team-badge lead-badge">{t("team.badge.kasppg", dict)}</span>
-                  <b>{t("team.kasppg", dict)}</b>
-                  <span className="lead-cap-name">Dicky Yusuf Mulyadi, S.M.</span>
+                  <b>Dicky Yusuf Mulyadi, S.M.</b>
                 </div>
               </div>
             </TiltCard>
@@ -121,11 +120,11 @@ export default function TeamClient() {
               <div className="ops-photo-stack">
                 {photoOps.map((o, i) => (
                   <Reveal className="ops-photo-wide" dir="up" key={i}>
-                    <TiltCard className="team-card team-photo-wide-card">
+                    <TiltCard className={`team-card team-photo-wide-card${o.portrait ? " team-photo-portrait-card" : ""}`}>
                       <div className="team-photo-media">
                         <picture>
                           <source srcSet={o.photoWebp} type="image/webp" />
-                          <img src={o.photo} alt={t(o.k, dict)} width={1200} height={903} loading="lazy" />
+                          <img src={o.photo} alt={t(o.k, dict)} width={1200} height={o.portrait ? 1726 : 903} loading="lazy" />
                         </picture>
                         <div className="team-photo-cap">
                           <b>{t(o.k, dict)}</b>
