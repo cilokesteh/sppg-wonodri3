@@ -30,7 +30,7 @@ export default function TeamClient() {
     { role: "team.aslap", name: "Hakim" },
   ];
   const ops = [
-    { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp" },
+    { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp", rating: "92" },
     { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"] },
     { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"] },
     { k: "team.packing", members: ["Muhlisin"] },
@@ -109,13 +109,14 @@ export default function TeamClient() {
           <SectionHead kicker={t("team.ops.kicker", dict)} title={t("team.ops.title", dict)} desc={t("team.ops.desc", dict)} />
           <RevealGrid className="team-grid" dir="alternate">
             {ops.map((o, i) => (
-              <TiltCard className={`team-card team-card-multi ${o.photo ? "team-card-photo" : ""}`} key={i}>
+              <TiltCard className={`team-card team-card-multi ${o.photo ? "efoot2-card" : ""}`} key={i}>
                 {o.photo ? (
-                  <div className="team-card-photo-img">
+                  <div className="efoot2-photo">
                     <picture>
                       <source srcSet={o.photoWebp} type="image/webp" />
                       <img src={o.photo} alt={t(o.k, dict)} width={480} height={360} loading="lazy" />
                     </picture>
+                    {o.rating && <span className="efoot2-rating">{o.rating}</span>}
                   </div>
                 ) : (
                   <Avatar icon={o.stack ? "stack" : "user"} />
