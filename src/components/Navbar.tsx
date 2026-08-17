@@ -11,6 +11,7 @@ const NAV_KEYS = [
   { href: "/service/", key: "nav.service" },
   { href: "/team/", key: "nav.team" },
   { href: "/portfolio/", key: "nav.portfolio" },
+  { href: "/artikel/", key: "nav.artikel" },
 ];
 
 export function ThemeToggle({ className = "" }: { className?: string }) {

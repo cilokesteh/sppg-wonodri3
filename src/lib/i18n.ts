@@ -4,6 +4,7 @@ export const idDict = {
   "nav.service": "Layanan",
   "nav.team": "Tim",
   "nav.portfolio": "Portfolio",
+  "nav.artikel": "Artikel",
   "nav.cta": "Kritik & Saran",
   "brand.sub": "Satuan Pelayanan Pemenuhan Gizi",
 
@@ -196,6 +197,10 @@ export const idDict = {
   "pf.gal5": "Penerima Manfaat",
   "pf.gal6": "Tim SPPG",
   "pf.pending": "Foto menyusul",
+  "art.kicker": "Informasi",
+  "art.title": "Artikel & Informasi",
+  "art.lead": "Simak informasi seputar program Makan Bergizi Gratis (MBG), gizi seimbang untuk anak sekolah, dan kegiatan SPPG Wonodri 3.",
+  "art.next": "Baca artikel lainnya",
 };
 
 export const enDict = {
@@ -204,6 +209,7 @@ export const enDict = {
   "nav.service": "Services",
   "nav.team": "Team",
   "nav.portfolio": "Portfolio",
+  "nav.artikel": "Articles",
   "nav.cta": "Feedback",
   "brand.sub": "Nutrition Fulfillment Service Unit",
 
@@ -396,6 +402,10 @@ export const enDict = {
   "pf.gal5": "Beneficiaries",
   "pf.gal6": "SPPG Team",
   "pf.pending": "Photos coming soon",
+  "art.kicker": "Information",
+  "art.title": "Articles & Information",
+  "art.lead": "Read about the Free Nutritious Meals (MBG) program, balanced nutrition for school children, and SPPG Wonodri 3 activities.",
+  "art.next": "Read more articles",
 };
 
 export type Dict = typeof idDict;
