@@ -1835,3 +1835,11 @@ html.theme-transition, html.theme-transition * {
 @media (max-width: 640px) {
   .footer-bottom a { font-size: .82rem; }
 }
+
+/* ── Mobile QC fix 2026-08-18 ── */
+/* .step icon: stroke-based SVG missing style → solid black 324px blob */
+.step .ic { width: 64px; height: 64px; border-radius: 16px; background: var(--sky-100); color: var(--sky-600); display: grid; place-items: center; margin-bottom: 14px; }
+.step .ic svg { width: 30px; height: 30px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+/* touch targets ≥44px */
+.hamburger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+.drawer-panel a { min-height: 44px; display: flex; align-items: center; }
