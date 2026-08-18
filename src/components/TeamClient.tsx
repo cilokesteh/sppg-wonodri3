@@ -66,11 +66,17 @@ export default function TeamClient() {
                 </div>
               </div>
             </TiltCard>
-            <TiltCard className="team-card team-card-lead" maxDeg={6}>
-              <div className="avatar-lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-              <span className="team-badge team-badge-alt">{t("team.badge.yayasan", dict)}</span>
-              <h3>{t("team.yayasan", dict)}</h3>
-              <p className="team-name">Ivan Gouw</p>
+            <TiltCard className="team-card team-card-lead team-lead-photo-card" maxDeg={6}>
+              <div className="team-photo-media lead-media">
+                <picture>
+                  <source srcSet="/assets/yayasan-ivan.webp" type="image/webp" />
+                  <img src="/assets/yayasan-ivan.jpg" alt="Gouw Ivan Siswanto S.H, M.TH" width={840} height={1120} loading="lazy" />
+                </picture>
+                <div className="team-photo-cap lead-cap">
+                  <span className="team-badge team-badge-alt lead-badge">{t("team.badge.yayasan", dict)}</span>
+                  <b>Gouw Ivan Siswanto S.H, M.TH</b>
+                </div>
+              </div>
             </TiltCard>
           </RevealGrid>
         </div>
