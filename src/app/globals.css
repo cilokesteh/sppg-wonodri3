@@ -1843,3 +1843,9 @@ html.theme-transition, html.theme-transition * {
 /* touch targets ≥44px */
 .hamburger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
 .drawer-panel a { min-height: 44px; display: flex; align-items: center; }
+
+/* ── fix 8-name overflow (2026-08-18): wrap allowed; separator jadi TRAILING
+   ::after, bukan leading ::before — baris wrap nggak mulai dari titik ── */
+.team-photo-names { flex-wrap: wrap !important; white-space: normal !important; row-gap: 4px !important; }
+.team-photo-names i + i::before { content: none !important; }
+.team-photo-names i:not(:last-child)::after { content: "\00b7"; margin-left: 5px; color: rgba(255,255,255,.55); }
