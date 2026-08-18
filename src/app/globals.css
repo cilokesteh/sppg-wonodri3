@@ -1689,3 +1689,149 @@ html.theme-transition, html.theme-transition * {
 @media (max-width: 600px) {
   .team-photo-solo-card { max-width: 320px; }
 }
+
+/* ══════════════════════════════════════════════════
+   MOBILE POLISH PASS — 2026-08-18
+   Comprehensive fixes for mobile phone experience
+   ══════════════════════════════════════════════════ */
+
+/* ── Form inputs: touch-friendly sizing ── */
+@media (max-width: 640px) {
+  .fb-row input, .fb-row textarea {
+    padding: 14px 16px !important;
+    font-size: 16px !important; /* prevents iOS zoom on focus */
+    min-height: 48px;
+    border-radius: 12px;
+  }
+  .fb-row textarea {
+    min-height: 120px;
+  }
+  .fb-form-card {
+    padding: 20px 16px !important;
+    border-radius: 16px;
+  }
+  .fb-form-card .btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+    width: 100%;
+  }
+}
+
+/* ── FAQ: larger touch targets ── */
+@media (max-width: 640px) {
+  .faq-item { border-radius: 14px; margin-bottom: 10px; }
+  .faq-q { padding: 16px 18px; font-size: .95rem; min-height: 52px; }
+  .faq-a p { padding: 0 18px 16px; font-size: .92rem; line-height: 1.6; }
+}
+
+/* ── School grid: mobile card polish ── */
+@media (max-width: 600px) {
+  .school-item {
+    padding: 16px 18px;
+    border-radius: 14px;
+  }
+  .school-name { font-size: .95rem; }
+  .school-val { font-size: 1.15rem; }
+  .school-total { border-radius: 14px; }
+}
+
+/* ── Contact section: mobile layout ── */
+@media (max-width: 640px) {
+  .contact-grid { gap: 20px; }
+  .info-row { gap: 12px; padding: 14px 0; }
+  .info-row .ic { width: 40px; height: 40px; }
+  .map-wrap iframe { min-height: 260px; border-radius: 14px; }
+}
+
+/* ── Service page value-items: mobile spacing ── */
+@media (max-width: 640px) {
+  .value-item { padding: 22px 16px; }
+  .value-item .ic { width: 44px; height: 44px; }
+  .value-item h3 { font-size: 1rem; }
+  .value-item p { font-size: .9rem; }
+}
+
+/* ── Steps (service page): mobile single column ── */
+@media (max-width: 640px) {
+  .step { padding: 20px 16px; }
+  .step h3 { font-size: 1rem; }
+  .step p { font-size: .9rem; }
+}
+
+/* ── Blog cards: mobile polish ── */
+@media (max-width: 600px) {
+  .blog-card { padding: 18px 16px; border-radius: 14px; }
+  .blog-card h3 { font-size: 1rem; }
+  .blog-card p { font-size: .88rem; }
+}
+
+/* ── Article body: mobile reading ── */
+@media (max-width: 600px) {
+  .article-body { font-size: 1rem; line-height: 1.75; }
+  .article-body h2 { font-size: 1.2rem; margin: 28px 0 10px; }
+  .article-body p { margin-bottom: 16px; }
+}
+
+/* ── Why grid: mobile card polish ── */
+@media (max-width: 640px) {
+  .why-item { padding: 18px 16px; gap: 14px; }
+  .why-item .num { font-size: 1.5rem; }
+  .why-item h3 { font-size: 1rem; }
+  .why-item p { font-size: .88rem; }
+}
+
+/* ── Team page: mobile improvements ── */
+@media (max-width: 640px) {
+  .team-lead-grid { gap: 14px; }
+  .team-grid { gap: 14px; }
+  .team-card { padding: 18px 14px; border-radius: 14px; }
+  .team-card h3 { font-size: .9rem; }
+  .team-members { font-size: .82rem; }
+  .team-members li { padding: 3px 0; }
+  .ops-photo-stack { gap: 14px; }
+  .team-photo-wide-card .team-photo-cap { padding: 12px 14px; }
+  .team-photo-wide-card .team-photo-cap b { font-size: .88rem; }
+}
+
+/* ── Hero: mobile fine-tuning ── */
+@media (max-width: 380px) {
+  .hero { padding: 80px 0 40px; }
+  h1 { font-size: 1.6rem; }
+  .hero-desc { font-size: .95rem; }
+  .hero-float { display: none; }
+  .hero-float-2 { display: none; }
+  .trust-item b { font-size: 1rem; }
+  .trust-item span { font-size: .78rem; }
+}
+
+/* ── Stats strip: mobile polish ── */
+@media (max-width: 380px) {
+  .stats-strip { padding: 18px 14px; gap: 10px; }
+  .stats-strip .st b { font-size: 1rem; }
+  .stats-strip .st span { font-size: .75rem; }
+}
+
+/* ── Drawer: mobile polish ── */
+@media (max-width: 640px) {
+  .drawer-panel { padding: 72px 20px 20px; }
+  .drawer-panel a { padding: 16px 14px; font-size: 1.05rem; }
+  .drawer-lang { margin-top: 24px; }
+}
+
+/* ── Footer: mobile polish ── */
+@media (max-width: 640px) {
+  footer { padding: 36px 0 20px; }
+  .footer-bottom { padding-top: 20px; }
+}
+
+/* ── Page hero: tighter on small screens ── */
+@media (max-width: 380px) {
+  .page-hero { padding: 88px 0 28px; }
+  .page-hero h1 { font-size: 1.5rem; }
+  .page-hero p { font-size: .92rem; }
+}
+
+/* ── CilokTech credit: smaller on mobile ── */
+@media (max-width: 640px) {
+  .footer-bottom a { font-size: .82rem; }
+}
