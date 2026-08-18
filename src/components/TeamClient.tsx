@@ -32,12 +32,12 @@ export default function TeamClient() {
   const ops = [
     { k: "team.persiapan", members: ["Dewi Agustina", "Dewi Ika", "Rina Nur", "Almira", "Feni Feb"], photo: "/assets/team-persiapan.jpg", photoWebp: "/assets/team-persiapan.webp", photoNames: ["Feni", "Ika", "Rina", "Dewi", "Almira"] },
     { k: "team.pengolahan", members: ["Ari Widyasari", "Ayu Armaya", "Rasyid", "Sri Wahyuni", "Agus Rini", "Ira Dwi"], photo: "/assets/team-pengolahan.jpg", photoWebp: "/assets/team-pengolahan.webp", photoNames: ["Ira", "Rini", "Ari", "Ayu", "Rasyid"] },
-    { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"], photo: "/assets/team-pemorsian.jpg", photoWebp: "/assets/team-pemorsian.webp", photoNames: ["Robi", "Agfanti", "Erna", "Marina", "Alis", "Dessy", "Ratna", "Herna"], portrait: true },
-    { k: "team.packing", members: ["Muhlisin"], photo: "/assets/staff-packing.jpg", photoWebp: "/assets/staff-packing.webp", photoNames: ["Muhlisin"], solo: true },
+    { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"], photo: "/assets/team-pemorsian.jpg", photoWebp: "/assets/team-pemorsian.webp", photoNames: ["Robi", "Agfanti", "Erna", "Marina", "Alis", "Dessy", "Ratna", "Herna"] },
+    { k: "team.packing", members: ["Muhlisin"], photo: "/assets/staff-packing.jpg", photoWebp: "/assets/staff-packing.webp", photoNames: ["Muhlisin"] },
     { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"], photo: "/assets/team-distribusi.jpg", photoWebp: "/assets/team-distribusi.webp", photoNames: ["Saebani", "Tamhid", "Harwiyono", "Rochmat"] },
     { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
     { k: "team.keamanan", members: ["Andrie", "Bambang"], stack: true },
-    { k: "team.kebersihan", members: ["Sutiman"], photo: "/assets/team-kebersihan-sutiman.jpg", photoWebp: "/assets/team-kebersihan-sutiman.webp", photoNames: ["Sutiman"], solo: true },
+    { k: "team.kebersihan", members: ["Sutiman"], photo: "/assets/team-kebersihan-sutiman.jpg", photoWebp: "/assets/team-kebersihan-sutiman.webp", photoNames: ["Sutiman"] },
   ];
   return (
     <>
@@ -70,7 +70,7 @@ export default function TeamClient() {
               <div className="team-photo-media lead-media">
                 <picture>
                   <source srcSet="/assets/yayasan-ivan.webp" type="image/webp" />
-                  <img src="/assets/yayasan-ivan.jpg" alt="Gouw Ivan Siswanto S.H, M.TH" width={728} height={971} loading="lazy" />
+                  <img src="/assets/yayasan-ivan.jpg" alt="Gouw Ivan Siswanto S.H, M.TH" width={840} height={1120} loading="lazy" />
                 </picture>
                 <div className="team-photo-cap lead-cap">
                   <span className="team-badge team-badge-alt lead-badge">{t("team.badge.yayasan", dict)}</span>
@@ -125,12 +125,12 @@ export default function TeamClient() {
             return (
               <div className="ops-photo-stack">
                 {photoOps.map((o, i) => (
-                  <Reveal className={`ops-photo-wide${o.solo ? " ops-photo-solo" : ""}`} dir="up" key={i}>
-                    <TiltCard className={`team-card team-photo-wide-card${o.portrait ? " team-photo-portrait-card" : ""}${o.solo ? " team-photo-solo-card" : ""}`}>
+                  <Reveal className="ops-photo-wide" dir="up" key={i}>
+                    <TiltCard className="team-card team-photo-wide-card">
                       <div className="team-photo-media">
                         <picture>
                           <source srcSet={o.photoWebp} type="image/webp" />
-                          <img src={o.photo} alt={t(o.k, dict)} width={o.solo ? 540 : (o.portrait ? 1200 : 1200)} height={o.solo ? 1038 : (o.portrait ? 1726 : 903)} loading="lazy" />
+                          <img src={o.photo} alt={t(o.k, dict)} width={1200} height={800} loading="lazy" />
                         </picture>
                         <div className="team-photo-cap">
                           <b>{t(o.k, dict)}</b>

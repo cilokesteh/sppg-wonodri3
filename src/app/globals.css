@@ -1588,8 +1588,9 @@ section[id] { scroll-margin-top: 96px; }
 /* ── Stack foto tim: tiap kartu lebar berurutan ke bawah ── */
 .ops-photo-stack { display: flex; flex-direction: column; gap: 18px; margin-bottom: 20px; }
 
-/* ── KASPPG lead photo — FULL PHOTO blended, nama overlay di dalam
-   (user: "kayak foto tim, full foto blended nama di dalam foto") ── */
+/* ── KASPPG lead photo — FULL PHOTO portrait blended, nama overlay di dalam
+   (rev 2026-08-18: balik ke portrait 3:4 — user: jangan zoom-out; caption di
+   bawah wajah, object-position center biar wajah nggak ketutup) ── */
 .team-lead-photo-card { padding: 0 !important; overflow: hidden !important; display: flex !important; }
 .team-lead-photo-card .lead-media {
   position: relative; width: 100%; aspect-ratio: 3/4 !important; flex: 1 !important;
@@ -1602,11 +1603,11 @@ section[id] { scroll-margin-top: 96px; }
 }
 .team-lead-photo-card .lead-media::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(11,20,36,0) 70%, rgba(11,20,36,.6) 88%, rgba(11,20,36,.92) 100%);
+  background: linear-gradient(180deg, rgba(11,20,36,0) 62%, rgba(11,20,36,.5) 84%, rgba(11,20,36,.92) 100%);
 }
 .lead-cap {
-  position: absolute; left: 16px; right: 16px; bottom: 10px; z-index: 2;
-  display: flex; flex-direction: column; gap: 4px; text-align: left; margin: 0 !important;
+  position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 2;
+  display: flex; flex-direction: column; gap: 5px; text-align: left; margin: 0 !important;
 }
 .lead-cap .lead-badge {
   align-self: flex-start; margin-bottom: 0;
@@ -1626,7 +1627,7 @@ section[id] { scroll-margin-top: 96px; }
 .team-lead-grid > * > .team-card-lead:not(.team-lead-photo-card) { justify-content: center; }
 @media (max-width: 600px) {
   .team-lead-photo-card .lead-media { aspect-ratio: 4/5 !important; }
-  .lead-cap { left: 12px; right: 12px; bottom: 8px; }
+  .lead-cap { left: 12px; right: 12px; bottom: 10px; }
   .lead-cap b { font-size: .76rem; }
   .lead-cap .lead-badge { font-size: .54rem !important; padding: 2px 7px !important; }
 }
