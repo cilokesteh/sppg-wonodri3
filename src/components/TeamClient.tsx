@@ -70,7 +70,7 @@ export default function TeamClient() {
               <div className="team-photo-media lead-media">
                 <picture>
                   <source srcSet="/assets/yayasan-ivan.webp" type="image/webp" />
-                  <img src="/assets/yayasan-ivan.jpg" alt="Gouw Ivan Siswanto S.H, M.TH" width={840} height={1120} loading="lazy" />
+                  <img src="/assets/yayasan-ivan.jpg" alt="Gouw Ivan Siswanto S.H, M.TH" width={728} height={971} loading="lazy" />
                 </picture>
                 <div className="team-photo-cap lead-cap">
                   <span className="team-badge team-badge-alt lead-badge">{t("team.badge.yayasan", dict)}</span>
