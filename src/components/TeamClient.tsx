@@ -86,19 +86,25 @@ export default function TeamClient() {
       <section className="section team-section section-alt">
         <div className="container">
           <SectionHead kicker={t("team.staff.kicker", dict)} title={t("team.staff.title", dict)} />
-          <RevealGrid className="team-grid" dir="alternate">
+          <RevealGrid className="team-grid team-staff-grid" dir="alternate">
             {staff.map((s, i) => (
-              <TiltCard className="team-card team-card-multi" key={i}>
-                {s.photo ? (
-                  <picture className="staff-photo-wrap">
-                    <source srcSet={s.photoWebp} type="image/webp" />
-                    <img src={s.photo} alt={s.name} width={700} height={1050} loading="lazy" />
-                  </picture>
-                ) : (
-                  <Avatar />
-                )}
-                <h3>{t(s.role, dict)}</h3>
-                <p className="team-name">{s.name}</p>
+              <TiltCard className="team-card team-staff-photo-card" key={i} maxDeg={6}>
+                <div className="staff-media">
+                  {s.photo ? (
+                    <picture>
+                      <source srcSet={s.photoWebp} type="image/webp" />
+                      <img src={s.photo} alt={s.name} width={700} height={1050} loading="lazy" />
+                    </picture>
+                  ) : (
+                    <div className="staff-avatar-placeholder">
+                      <Avatar />
+                    </div>
+                  )}
+                  <div className="staff-cap">
+                    <span className="team-badge staff-badge">{t(s.role, dict)}</span>
+                    <b>{s.name}</b>
+                  </div>
+                </div>
               </TiltCard>
             ))}
           </RevealGrid>
