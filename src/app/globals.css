@@ -610,6 +610,12 @@ html.js .reveal.d4 { animation-delay: .32s; }
   .team-card, .team-card-lead { padding: 18px 12px; }
 }
 
+/* 2026-08-18: lead photo cards 1 kolom sampai 480px — di phone
+   (390–412px) 2 kolom bikin card <190px → caption nutup wajah */
+@media (min-width: 381px) and (max-width: 479px) {
+  .team-lead-grid { grid-template-columns: minmax(0, 1fr); max-width: 420px; margin: 0 auto; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
@@ -1627,9 +1633,12 @@ section[id] { scroll-margin-top: 96px; }
 .team-lead-grid > * > .team-card-lead:not(.team-lead-photo-card) { justify-content: center; }
 @media (max-width: 600px) {
   .team-lead-photo-card .lead-media { aspect-ratio: 4/5 !important; }
-  .lead-cap { left: 12px; right: 12px; bottom: 10px; }
-  .lead-cap b { font-size: .76rem; }
-  .lead-cap .lead-badge { font-size: .54rem !important; padding: 2px 7px !important; }
+  /* Object-position naik biar wajah gak ketutup caption di mobile (card kecil) */
+  .team-lead-photo-card .lead-media picture,
+  .team-lead-photo-card .lead-media img { object-position: center 30% !important; }
+  .lead-cap { left: 10px; right: 10px; bottom: 6px; gap: 3px; }
+  .lead-cap b { font-size: .68rem; line-height: 1.15; text-shadow: 0 1px 8px rgba(0,0,0,.7); }
+  .lead-cap .lead-badge { font-size: .48rem !important; padding: 2px 6px !important; }
 }
 
 /* ── Team photo PORTRAIT card (rev: foto potret, mis. Tim Pemorsian) ──
