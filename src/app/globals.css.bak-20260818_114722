@@ -222,8 +222,6 @@ p { color: var(--ink-soft); }
 /* ── Cards / Grids ── */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-.grid-4 > div { display: flex; flex-direction: column; }
-.grid-4 > div > .card { height: 100%; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
 .card {
   background: rgba(255, 255, 255, 0.88);
@@ -1183,7 +1181,7 @@ html.theme-transition, html.theme-transition * {
 }
 
 /* ── Smooth anchor scroll offset (fixed nav) ── */
-.section { scroll-margin-top: 96px; }
+section[id] { scroll-margin-top: 96px; }
 
 /* ── Desktop hover lift untuk grid cards (non-tilt) ── */
 .grid-3 > .card, .grid-4 > .card { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease; }
