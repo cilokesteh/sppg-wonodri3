@@ -37,7 +37,7 @@ export default function TeamClient() {
     { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"], photo: "/assets/team-distribusi.jpg", photoWebp: "/assets/team-distribusi.webp", photoNames: ["Saebani", "Tamhid", "Harwiyono", "Rochmat"] },
     { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
     { k: "team.keamanan", members: ["Andrie", "Bambang"], stack: true },
-    { k: "team.kebersihan", members: ["Sutiman"] },
+    { k: "team.kebersihan", members: ["Sutiman"], photo: "/assets/team-kebersihan-sutiman.jpg", photoWebp: "/assets/team-kebersihan-sutiman.webp", photoNames: ["Sutiman"], solo: true },
   ];
   return (
     <>
