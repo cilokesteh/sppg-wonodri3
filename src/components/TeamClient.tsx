@@ -116,11 +116,16 @@ export default function TeamClient() {
         <div className="container">
           <SectionHead kicker={t("team.admin.kicker", dict)} title={t("team.admin.title", dict)} />
           <div className="team-admin-grid">
-            <Reveal className="team-card team-card-admin" dir="left">
-              <Avatar />
-              <div className="admin-body">
-                <h3>{t("team.adminRole", dict)}</h3>
-                <p className="team-name">Nur Khafidin</p>
+            <Reveal className="team-card team-card-admin team-staff-photo-card" dir="left">
+              <div className="staff-media">
+                <picture>
+                  <source srcSet="/assets/admin-khafidin.webp" type="image/webp" />
+                  <img src="/assets/admin-khafidin.jpg" alt="Nur Khafidin" width={700} height={1050} loading="lazy" />
+                </picture>
+                <div className="staff-cap">
+                  <span className="team-badge staff-badge">{t("team.adminRole", dict)}</span>
+                  <b>Nur Khafidin</b>
+                </div>
               </div>
               <p className="admin-desc">{t("team.admin.desc", dict)}</p>
             </Reveal>
