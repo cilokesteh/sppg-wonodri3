@@ -127,7 +127,6 @@ export default function TeamClient() {
                   <b>Nur Khafidin</b>
                 </div>
               </div>
-              <p className="admin-desc">{t("team.admin.desc", dict)}</p>
             </Reveal>
           </div>
         </div>
