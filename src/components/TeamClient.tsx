@@ -35,7 +35,7 @@ export default function TeamClient() {
     { k: "team.pemorsian", members: ["Marina", "Alis", "Herna", "Dwi Erna", "Dessy", "Ratna", "Aghfanti", "Robi"], photo: "/assets/team-pemorsian.jpg", photoWebp: "/assets/team-pemorsian.webp", photoNames: ["Robi", "Agfanti", "Erna", "Marina", "Alis", "Dessy", "Ratna", "Herna"] },
     { k: "team.packing", members: ["Muhlisin"], photo: "/assets/staff-packing.jpg", photoWebp: "/assets/staff-packing.webp", photoNames: ["Muhlisin"] },
     { k: "team.distribusi", members: ["Harwiyono", "Rochmat", "Saebani", "Tamhid"], photo: "/assets/team-distribusi.jpg", photoWebp: "/assets/team-distribusi.webp", photoNames: ["Saebani", "Tamhid", "Harwiyono", "Rochmat"] },
-    { k: "team.cuci", members: ["Andri", "Titis", "Eko", "Ratnasari", "Putri", "Rasetika", "Rizky", "Ariawan", "Yanti"] },
+    { k: "team.cuci", members: ["Titis", "Andri", "Rizky", "Rasetika", "John", "Yanti", "Ratnasari", "Putri", "Eko"], photo: "/assets/team-cuci.jpg", photoWebp: "/assets/team-cuci.webp", photoNames: ["Titis", "Andri", "Rizky", "Rasetika", "John", "Yanti", "Ratnasari", "Putri", "Eko"] },
     { k: "team.keamanan", members: ["Bambang", "Andrie"], photo: "/assets/team-keamanan-bambang-andrie.jpg", photoWebp: "/assets/team-keamanan-bambang-andrie.webp", photoNames: ["Bambang", "Andrie"] },
     { k: "team.kebersihan", members: ["Sutiman"], photo: "/assets/team-kebersihan-sutiman.jpg", photoWebp: "/assets/team-kebersihan-sutiman.webp", photoNames: ["Sutiman"] },
   ];
