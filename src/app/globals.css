@@ -377,7 +377,8 @@ p { color: var(--ink-soft); }
 .team-section { padding: 48px 0; }
 .team-section .section-head { margin-bottom: 26px; }
 .team-lead-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 400px)); gap: 20px; justify-content: center; }
-.team-admin-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.team-admin-grid { display: flex; justify-content: center; gap: 14px; }
+.team-admin-grid > * { max-width: 280px; width: 100%; }
 .team-card.team-card-admin.team-staff-photo-card { /* inherits photo layout from .team-staff-photo-card */ }
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 /* Member list per tim */
@@ -560,7 +561,7 @@ html.js .reveal.d4 { animation-delay: .32s; }
   /* Team tiers always side-by-side (sejajar), never stacked */
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .team-lead-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .team-admin-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .team-admin-grid { display: flex; justify-content: center; gap: 12px; }
   .team-card-admin.team-staff-photo-card { /* inherits mobile photo layout */ }
   .team-card { padding: 18px 12px; }
   .team-card-lead { padding: 22px 14px; }
@@ -1949,3 +1950,4 @@ html.theme-transition, html.theme-transition * {
 .team-staff-photo-card .staff-media img[alt*="Salsabiila"] {
   transform: scale(1.12) translateX(-4.4%);
 }
+
