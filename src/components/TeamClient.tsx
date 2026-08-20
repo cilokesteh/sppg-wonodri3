@@ -25,7 +25,7 @@ export default function TeamClient() {
   const { dict } = useI18n();
   const staff = [
     { role: "team.chef", name: "Ryan" },
-    { role: "team.gizi", name: "Sintia" },
+    { role: "team.gizi", name: "Sintia Mariam, A.Md.Gz", photo: "/assets/staff-gizi.jpg", photoWebp: "/assets/staff-gizi.webp" },
     { role: "team.akuntan", name: "Salsabiila Zaenina, S.Ak.", photo: "/assets/staff-akuntan.jpg", photoWebp: "/assets/staff-akuntan.webp" },
     { role: "team.aslap", name: "Hakim" },
   ];

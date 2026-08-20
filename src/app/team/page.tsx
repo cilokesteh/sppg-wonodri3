@@ -36,7 +36,7 @@ export default function TeamPage() {
       { "@type": "Person", jobTitle: "Kepala Satuan Pelayanan (KASPPG)", name: "Dicky Yusuf M" },
       { "@type": "Person", jobTitle: "Perwakilan Yayasan", name: "Ivan Gouw" },
       { "@type": "Person", jobTitle: "Chef", name: "Ryan" },
-      { "@type": "Person", jobTitle: "Ahli Gizi", name: "Sintia" },
+      { "@type": "Person", jobTitle: "Ahli Gizi", name: "Sintia Mariam, A.Md.Gz" },
       { "@type": "Person", jobTitle: "Akuntan", name: "Salsa" },
       { "@type": "Person", jobTitle: "Asisten Lapangan", name: "Hakim" },
       { "@type": "Person", jobTitle: "Administrasi", name: "Nur Khafidin" },
