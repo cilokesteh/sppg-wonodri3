@@ -4,3 +4,7 @@ out
 .env*
 *.log
 src/app/globals.css.bak-*
+
+# editor/backup
+*.bak-*
+*.bak
