@@ -1896,3 +1896,40 @@ html.theme-transition, html.theme-transition * {
   .team-staff-photo-card .staff-cap b { font-size: .72rem; line-height: 1.15; }
   .team-staff-photo-card .staff-cap .staff-badge { font-size: .5rem !important; padding: 2px 7px !important; }
 }
+
+/* ── rev-15: team ops photos — CENTER + zoom-in dikit (2026-08-20) ──
+   Desktop media ratio == source ratio (3:2) → object-position does nothing;
+   centering must be done with transform. Offsets = OpenCV YuNet face-center
+   measurements (group center vs 50%), scale chosen per photo so the shift
+   stays within coverage (no edge sliver / no clipped subject). */
+.team-photo-wide-card .team-photo-media img {
+  transform: scale(1.07);
+}
+.team-photo-wide-card .team-photo-media img[data-photo="team.persiapan"] {
+  /* group +5.0% right (YuNet 55.0%) -> shift -5% w/ scale 1.12 */
+  transform: scale(1.12) translateX(-5%);
+}
+.team-photo-wide-card .team-photo-media img[data-photo="team.pengolahan"] {
+  /* group +2.6% right (52.6%) */
+  transform: scale(1.07) translateX(-2.6%);
+}
+.team-photo-wide-card .team-photo-media img[data-photo="team.pemorsian"] {
+  /* group -2.3% left (47.7%) + crop excess headroom (face_y 31%) */
+  transform: scale(1.07) translateX(2.3%) translateY(3%);
+}
+.team-photo-wide-card .team-photo-media img[data-photo="team.packing"] {
+  /* asset re-padded w/ face centered (YuNet 49.7%) — uniform zoom only */
+  transform: scale(1.07);
+}
+.team-photo-wide-card .team-photo-media img[data-photo="team.distribusi"] {
+  /* asset re-cropped from 1400x631 orig, group 46.4% -> nudge +3% */
+  transform: scale(1.07) translateX(3%);
+}
+.team-photo-wide-card .team-photo-media img[data-photo="team.keamanan"] {
+  /* group -8.3% left (41.7%) -> shift +6.5% w/ scale 1.15 */
+  transform: scale(1.15) translateX(6.5%);
+}
+.team-photo-wide-card .team-photo-media img[data-photo="team.kebersihan"] {
+  transform: scale(1.07);
+}
+/* Mobile: keep the same centering; media is 4/3 so just inherit */
