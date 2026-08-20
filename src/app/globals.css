@@ -1933,3 +1933,19 @@ html.theme-transition, html.theme-transition * {
   transform: scale(1.07);
 }
 /* Mobile: keep the same centering; media is 4/3 so just inherit */
+
+/* ── rev-15b: PORTRAIT photo cards — subtle zoom + centering (2026-08-20) ──
+   Leads (KASPPG/Yayasan): face already ~50% x, mid-card vertically (YuNet
+   50.1/50.3%, rendered ~47%) -> uniform 8% zoom safe. Staff/admin: 10-12%
+   zoom (Salsabiila is full-body, face only 11% of source -> bigger zoom +
+   -4.4% x re-center from YuNet 54.4%). Transform only enlarges the img box,
+   so full coverage is guaranteed; kept moderate per user "zoom in dikit". */
+.team-lead-photo-card .lead-media img {
+  transform: scale(1.08);
+}
+.team-staff-photo-card .staff-media img {
+  transform: scale(1.10);
+}
+.team-staff-photo-card .staff-media img[alt*="Salsabiila"] {
+  transform: scale(1.12) translateX(-4.4%);
+}
