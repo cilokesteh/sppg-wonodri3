@@ -22,7 +22,7 @@ export default function PortfolioClient() {
     { icon: "user", cap: "pf.gal5" },
     { icon: "user", cap: "pf.gal6" },
   ];
-  // Data penerima manfaat per sekolah/posyandu (total 1.576)
+  // Data penerima manfaat per sekolah/posyandu (total 1.560)
   const schools = [
     { n: "SDN Pleburan 03", v: 346 },
     { n: "SDN Wonodri", v: 91 },
@@ -32,7 +32,7 @@ export default function PortfolioClient() {
     { n: "TK Nirwana Burhan", v: 61 },
     { n: "TK Hapsari", v: 11 },
     { n: "SDN Lamper Lor", v: 154 },
-    { n: "TK IT Sultan Agung", v: 116 },
+    { n: "TK IT Sultan Agung", v: 100 },
     { n: "TK Siwi Peni", v: 29 },
     { n: "SDN Pleburan", v: 150 },
     { n: "SD IT Al Firdaus", v: 349 },

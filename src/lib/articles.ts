@@ -29,7 +29,7 @@ export const articles: Article[] = [
       },
       {
         h: "Siapa yang Menerima Manfaat MBG?",
-        p: "Penerima manfaat program ini adalah siswa TK, SD, hingga jenjang lainnya, serta balita di posyandu. Di wilayah kerja SPPG Wonodri 3, program ini melayani 1.576 penerima manfaat dari 12 sekolah dan 1 posyandu di Semarang Selatan.",
+        p: "Penerima manfaat program ini adalah siswa TK, SD, hingga jenjang lainnya, serta balita di posyandu. Di wilayah kerja SPPG Wonodri 3, program ini melayani 1.560 penerima manfaat dari 12 sekolah dan 1 posyandu di Semarang Selatan.",
       },
       {
         h: "Bagaimana MBG Dilaksanakan?",
@@ -120,14 +120,14 @@ export const articles: Article[] = [
     slug: "dapur-mbg-semarang",
     title: "Dapur MBG di Semarang: Cara Kerja SPPG Wonodri 3",
     description:
-      "Mengenal dapur MBG di Semarang Selatan — SPPG Wonodri 3. Dari perencanaan menu hingga distribusi 1.576 porsi ke 12 sekolah dan 1 posyandu setiap hari.",
+      "Mengenal dapur MBG di Semarang Selatan — SPPG Wonodri 3. Dari perencanaan menu hingga distribusi 1.560 porsi ke 12 sekolah dan 1 posyandu setiap hari.",
     date: "2026-08-17",
     readTime: "4 menit",
     category: "SPPG Wonodri 3",
     keywords: ["dapur MBG Semarang", "SPPG Wonodri 3", "MBG Semarang Selatan", "dapur MBG"],
     content: [
       {
-        p: "Di Jl. Erlangga Raya No 38, Kel. Pleburan, Kec. Semarang Selatan, terdapat dapur MBG yang setiap hari menyiapkan 1.576 porsi makanan bergizi. Ini adalah SPPG Wonodri 3 — salah satu satuan pelayanan pemenuhan gizi di Kota Semarang.",
+        p: "Di Jl. Erlangga Raya No 38, Kel. Pleburan, Kec. Semarang Selatan, terdapat dapur MBG yang setiap hari menyiapkan 1.560 porsi makanan bergizi. Ini adalah SPPG Wonodri 3 — salah satu satuan pelayanan pemenuhan gizi di Kota Semarang.",
       },
       {
         h: "Alur Produksi Harian",
@@ -144,7 +144,7 @@ export const articles: Article[] = [
       },
       {
         h: "Kapasitas dan Jangkauan",
-        p: "Dapur SPPG Wonodri 3 melayani 12 sekolah dan 1 posyandu dengan total 1.576 penerima manfaat — terdiri dari peserta didik TK, SD, dan balita posyandu di wilayah Semarang Selatan.",
+        p: "Dapur SPPG Wonodri 3 melayani 12 sekolah dan 1 posyandu dengan total 1.560 penerima manfaat — terdiri dari peserta didik TK, SD, dan balita posyandu di wilayah Semarang Selatan.",
       },
       {
         h: "Tim di Balik Dapur",
