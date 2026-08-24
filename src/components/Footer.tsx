@@ -59,7 +59,7 @@ export function Footer() {
         <span>© {new Date().getFullYear()} SPPG Wonodri 3. {t("footer.rights", dict)}</span>
         <span className="credit">
           {t("footer.credit", dict)}{" "}
-          <a href="https://ciloktech.web.id" target="_blank" rel="noopener noreferrer">CilokTech Studio</a>
+          <a href="https://ciloktech.id" target="_blank" rel="noopener noreferrer">CilokTech Studio</a>
         </span>
       </div>
     </footer>
