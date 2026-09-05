@@ -9,6 +9,7 @@ const FOOTER_NAV = [
   { href: "/service/", key: "nav.service" },
   { href: "/team/", key: "nav.team" },
   { href: "/portfolio/", key: "nav.portfolio" },
+  { href: "/privasi/", key: "Privasi" },
 ];
 
 export function Footer() {

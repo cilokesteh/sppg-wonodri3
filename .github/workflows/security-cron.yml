@@ -1,0 +1,30 @@
+name: Weekly Security Audit & License Scan
+
+on:
+  schedule:
+    - cron: "0 17 * * 0" # 00:00 WIB Senin
+  workflow_dispatch:
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable pnpm via corepack
+        run: corepack enable && corepack prepare pnpm@11 --activate
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit vulnerabilities
+        run: pnpm audit --audit-level=high
+
+      - name: License Compliance Scan
+        run: npx license-checker --onlyAllow "MIT;Apache-2.0;BSD-2-Clause;BSD-3-Clause;ISC;0BSD;CC0-1.0;Python-2.0;MPL-2.0" --excludePrivatePackages
