@@ -31,7 +31,6 @@ export function Reveal({
   once?: boolean;
 }) {
   const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
 
   const hidden =
     dir === "left" ? { x: -64, y: 0 } : dir === "right" ? { x: 64, y: 0 } : { x: 0, y: 48 };
@@ -39,10 +38,10 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, ...hidden, filter: `blur(${BLUR})` }}
-      whileInView={{ opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
+      initial={reduce ? { opacity: 1, x: 0, y: 0, filter: "none" } : { opacity: 0, ...hidden, filter: `blur(${BLUR})` }}
+      whileInView={reduce ? { opacity: 1, x: 0, y: 0, filter: "none" } : { opacity: 1, x: 0, y: 0, filter: "blur(0px)" }}
       viewport={{ once, margin: "-40px" }}
-      transition={{ duration: DUR, delay, ease: EASE }}
+      transition={reduce ? { duration: 0 } : { duration: DUR, delay, ease: EASE }}
     >
       {children}
     </motion.div>
@@ -65,14 +64,17 @@ export function RevealGrid({
   stagger?: number;
 }) {
   const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
 
   const kids = Children.toArray(children).map((child, i) => {
     const x = dir === "alternate" ? (i % 2 === 0 ? -64 : 64) : dir === "left" ? -64 : dir === "right" ? 64 : 0;
     const y = dir === "up" ? 44 : 0;
     const v: Variants = {
-      hidden: { opacity: 0, x, y, filter: `blur(${BLUR})` },
-      show: { opacity: 1, x: 0, y: 0, filter: "blur(0px)", transition: { duration: DUR, ease: EASE } },
+      hidden: reduce
+        ? { opacity: 1, x: 0, y: 0, filter: "none" }
+        : { opacity: 0, x, y, filter: `blur(${BLUR})` },
+      show: reduce
+        ? { opacity: 1, x: 0, y: 0, filter: "none", transition: { duration: 0 } }
+        : { opacity: 1, x: 0, y: 0, filter: "blur(0px)", transition: { duration: DUR, ease: EASE } },
     };
     return (
       <motion.div key={i} variants={v}>
@@ -87,7 +89,7 @@ export function RevealGrid({
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-40px" }}
-      variants={{ show: { transition: { staggerChildren: stagger } } }}
+      variants={{ show: { transition: { staggerChildren: reduce ? 0 : stagger } } }}
     >
       {kids}
     </motion.div>
