@@ -13,7 +13,7 @@
     "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm license"
   },
   "dependencies": {
-    "framer-motion": "^13.1.0",
+    "framer-motion": "^13.4.3",
     "next": "15.5.26",
     "react": "19.1.0",
     "react-dom": "19.1.0",
