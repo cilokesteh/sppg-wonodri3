@@ -14,21 +14,21 @@
   },
   "dependencies": {
     "framer-motion": "^13.1.0",
-    "next": "15.5.23",
+    "next": "15.5.26",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "zod": "^4.5.4"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
-    "@eslint/eslintrc": "^3",
+    "@eslint/eslintrc": "^3.3.7",
     "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.23",
+    "eslint-config-next": "15.5.26",
     "license-checker": "^25.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
