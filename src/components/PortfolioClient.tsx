@@ -26,16 +26,16 @@ export default function PortfolioClient() {
   const schools = [
     { n: "SDN Pleburan 03", v: 341 },
     { n: "SDN Wonodri", v: 91 },
-    { n: "SDN Pleburan A", v: 120 },
+    { n: "SDN Pleburan 01", v: 122 },
     { n: "Posyandu Erlangga", v: 74 },
     { n: "TK Kuntum Mekar", v: 31 },
     { n: "TK Nirwana Burhan", v: 61 },
     { n: "TK Hapsari", v: 11 },
     { n: "SDN Lamper Lor", v: 154 },
-    { n: "TK IT Sultan Agung", v: 100 },
+    { n: "TK IT Sultan Agung", v: 99 },
     { n: "TK Siwi Peni", v: 29 },
-    { n: "SDN Pleburan B", v: 150 },
-    { n: "SD IT Al Firdaus", v: 349 },
+    { n: "SDN Pleburan 04", v: 150 },
+    { n: "SD IT Al Firdaus", v: 350 },
     { n: "TK Kartika III", v: 43 },
   ];
   const schoolTotal = schools.reduce((a, s) => a + s.v, 0);
