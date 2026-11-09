@@ -49,11 +49,11 @@ export default function TeamClient() {
         </div>
       </section>
 
-      {/* Leadership & Foundation — setara sejajar */}
+      {/* Leadership */}
       <section className="section team-section">
         <div className="container">
           <SectionHead kicker={t("team.top.kicker", dict)} title={t("team.top.title", dict)} desc={t("team.top.desc", dict)} />
-          <RevealGrid className="team-lead-grid" dir="alternate">
+          <RevealGrid className="team-lead-grid" dir="up">
             <TiltCard className="team-card team-card-lead team-lead-photo-card" maxDeg={6}>
               <div className="team-photo-media lead-media">
                 <picture>
@@ -63,18 +63,6 @@ export default function TeamClient() {
                 <div className="team-photo-cap lead-cap">
                   <span className="team-badge lead-badge">{t("team.badge.kasppg", dict)}</span>
                   <b>Dicky Yusuf Mulyadi, S.M.</b>
-                </div>
-              </div>
-            </TiltCard>
-            <TiltCard className="team-card team-card-lead team-lead-photo-card" maxDeg={6}>
-              <div className="team-photo-media lead-media">
-                <picture>
-                  <source srcSet="/assets/yayasan-ivan.webp" type="image/webp" />
-                  <img src="/assets/yayasan-ivan.jpg" alt="Gouw Ivan Siswanto S.H, M.TH" width={840} height={1120} loading="lazy" />
-                </picture>
-                <div className="team-photo-cap lead-cap">
-                  <span className="team-badge team-badge-alt lead-badge">{t("team.badge.yayasan", dict)}</span>
-                  <b>Gouw Ivan Siswanto S.H, M.TH</b>
                 </div>
               </div>
             </TiltCard>

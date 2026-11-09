@@ -376,7 +376,8 @@ p { color: var(--ink-soft); }
 /* ── Team page ── */
 .team-section { padding: 48px 0; }
 .team-section .section-head { margin-bottom: 26px; }
-.team-lead-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 400px)); gap: 20px; justify-content: center; }
+.team-lead-grid { display: flex; justify-content: center; gap: 20px; }
+.team-lead-grid > * { max-width: 400px; width: 100%; }
 .team-admin-grid { display: flex; justify-content: center; gap: 14px; }
 .team-admin-grid > * { max-width: 280px; width: 100%; }
 .team-card.team-card-admin.team-staff-photo-card { /* inherits photo layout from .team-staff-photo-card */ }
@@ -560,7 +561,7 @@ html.js .reveal.d4 { animation-delay: .32s; }
   .map-wrap iframe { min-height: 280px; }
   /* Team tiers always side-by-side (sejajar), never stacked */
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .team-lead-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .team-lead-grid { display: flex; justify-content: center; gap: 12px; }
   .team-admin-grid { display: flex; justify-content: center; gap: 12px; }
   .team-card-admin.team-staff-photo-card { /* inherits mobile photo layout */ }
   .team-card { padding: 18px 12px; }
@@ -603,14 +604,14 @@ html.js .reveal.d4 { animation-delay: .32s; }
   .stats-strip { grid-template-columns: 1fr 1fr; padding: 20px 14px; gap: 12px; }
   .stats-strip .st b { font-size: 1.05rem; }
   .team-grid { grid-template-columns: 1fr; }
-  .team-lead-grid { grid-template-columns: 1fr; }
+  .team-lead-grid { display: flex; justify-content: center; }
   .team-card, .team-card-lead { padding: 18px 12px; }
 }
 
 /* 2026-08-18: lead photo cards 1 kolom sampai 480px — di phone
    (390–412px) 2 kolom bikin card <190px → caption nutup wajah */
 @media (min-width: 381px) and (max-width: 479px) {
-  .team-lead-grid { grid-template-columns: minmax(0, 1fr); max-width: 420px; margin: 0 auto; }
+  .team-lead-grid { max-width: 420px; margin: 0 auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -104,7 +104,7 @@ export const articles: Article[] = [
       },
       {
         h: "Struktur Tim SPPG Wonodri 3",
-        p: "SPPG Wonodri 3 digerakkan oleh 36 personel yang terbagi dalam delapan tim: Persiapan, Pengolahan, Pemorsian, Packing, Distribusi, Cuci Ompreng, Keamanan, dan Kebersihan — dipimpin KASPPG dan didukung perwakilan yayasan serta staf profesional (chef, ahli gizi, akuntan, asisten lapangan).",
+        p: "SPPG Wonodri 3 digerakkan oleh 36 personel yang terbagi dalam delapan tim: Persiapan, Pengolahan, Pemorsian, Packing, Distribusi, Cuci Ompreng, Keamanan, dan Kebersihan — dipimpin KASPPG serta didukung staf profesional (chef, ahli gizi, akuntan, asisten lapangan).",
       },
       {
         h: "Standar Mutu yang Dijaga",
